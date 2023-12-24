@@ -14,15 +14,16 @@ interface ResultsProps {
 
 function ResultsInHeb(props:ResultsProps): JSX.Element {
     const navigate = useNavigate();
-    function isChecked(args:SyntheticEvent){
-      navigate("/AddPatientInHeb");
-    }
+    // function isChecked(args:SyntheticEvent){
+    // //   navigate("/AddPatientInHeb");
+    // }
     console.log("Results")
     console.log(props.signsOfPain);
     return (
         <div className="ResultsInHeb">
             <div className="div1 Box">
-            <h1> פרטי  החולה</h1>
+            <AddPatientInHeb></AddPatientInHeb>
+            {/* <h1> פרטי  החולה</h1>
            <label>{props.patient?.firstName}:שם פרטי</label> 
             <br/>
             <label> {props.patient?.lastName}:שם משפחה</label> 
@@ -34,7 +35,7 @@ function ResultsInHeb(props:ResultsProps): JSX.Element {
             <label>{props.patient?.country}:מדינה</label> 
             <br/>
             <label>{props.patient?.city}:עיר</label> 
-            <br/>
+            <br/> */}
             </div>
             <div  className="div2 Box">
             <h1>   תוצאות   החולה</h1>
@@ -82,7 +83,7 @@ function ResultsInHeb(props:ResultsProps): JSX.Element {
             <label> sips.study@gmail.com</label>
             </p>
             <br/>
-            <label><input type="checkbox" onChange={isChecked}/></label>
+            {/* <label><input type="checkbox" onChange={isChecked}/></label> */}
         </div>
     );
 }

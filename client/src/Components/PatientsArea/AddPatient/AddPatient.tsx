@@ -1,107 +1,222 @@
-import { useForm } from "react-hook-form";
-import "./AddPatient.css";
-import Patient from './../../../Models/PatientsModel/PatientModel/Patient-model';
-import { useNavigate } from "react-router-dom";
-import { MessageClient } from "cloudmailin";
-import nodemailer from "nodemailer";
-import Mail from "nodemailer/lib/mailer";
-// const nodemailer = require("nodemailer");
+// import { useForm } from "react-hook-form";
+// import { useNavigate } from "react-router-dom";
+// import Patient from "../../../Models/PatientsModel/PatientModel/Patient-model";
+// import "./AddPatientInHeb.css";
+// import axios from "axios";
+// import store from "../../../Redux/ReduxStore/Store";
+// import React, { useState } from "react";
 
-function AddPatient(): JSX.Element {
-    // async function main() {
-    //     //const = "hostname from account page";
-    //     //const = "username from account page";
-    //    // const = "password from account page";
-      
-    //     const transporter = nodemailer.createTransport({
-    //       //host: hostname,
-    //       //port: 587,
-    //       secure: false,
-    //       requireTLS: true,
-    //       auth: {
-    //        // user: username,
-    //         //pass: password,
-    //       },
-    //       logger: true
-    //     });
 
-    //========================================================
-// const  rom = {{{firstname}}} + {{{lastname}}}
-// const Email = {{{email}}}
-// const Phone ={{{phone}}}
-// const Message = {{{message}}
-//     emailjs.sendForm(`gmail`, apiKey.TEMPLATE_ID, e.target, apiKey.USER_ID)
-// .then((result) => {
-// alert("Message Sent, We will get back to you shortly", result.text);
-// },
-// (error) => {
-// alert("An error occurred, Please try again", error.text);
-// });
-// };
-    //===============================================
-    const navigate = useNavigate();
-    const{register,handleSubmit} = useForm<Patient>();
-    async function submit(patient:Patient):Promise<void> {
-        const formData = new FormData();
-        formData.append("firstName",patient.firstName);
-        formData.append("lastName",patient.lastName);
-        formData.append("age",patient.age.toString());
-        formData.append("birthDate",patient.birthDate);
-        formData.append("photoOfUser",patient.photoOfUser[0]);
-        formData.append("country",patient.country);
-        formData.append("city",patient.city);
-      //navigate("/Main")//===========================================================??????
-      const USERNAME:string="";
-      const API_KEY:string="";
-     const client = new MessageClient({ username: USERNAME, apiKey: API_KEY});
-    const response = await client.sendMessage({
-  from: '"Sender Name" <from@example.net>',
-  to: "to@example.com",
-  subject: "Hello from node",
-  plain: "Hello world?",
-  html: "<strong>Hello world?</strong>",
-  headers: { 'x-myheader': 'test header' }
-//   attachments:[
-//     {
-//       "file_name": "pixel.png",
-//       "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP0rdr1HwAFHwKCk87e6gAAAABJRU5ErkJggg==",
-//       "content_type": "image/png"
+
+//  function AddPatientInHeb(): JSX.Element {
+//     const getSignsOfPaintOject={...store.getState().PainsAppState.signsOFPain}
+
+//     const navigate = useNavigate();
+//     const{register,handleSubmit} = useForm<Patient>();
+ 
+//     async function submit(patient:Patient):Promise<void> {
+//         try {
+ 
+//         const formData = new FormData();
+//         formData.append("firstName",patient.firstName);
+//         formData.append("lastName",patient.lastName);
+//         formData.append("age",patient.age.toString());
+//         formData.append("birthDate",patient.birthDate);
+//         formData.append("photoOfUser",patient.photoOfUser[0]);
+//         formData.append("country",patient.country);
+//         formData.append("city",patient.city);
+
+// //  in addPatientInHeb change 25-41
+
+//         const { data } = await axios.post(`http://localhost:5002/api/v1/email/send-mail`,
+//          {  
+//             result: store.getState().PainsAppState,
+//             patient: patient,
+//         });
+//             if(!data.status)
+//                 console.error("mail is not send");
+//             else {
+//                 const { status, error } = data;
+//             }
+
+  
+//         }
+//         catch (error) {
+//             console.error(error);
+//           }
+
+//         //navigate("/Main")
 //     }
-//   ]
-});
-      //===============================================================================
-        
-    }
-    return (
-        <div className="AddPatient Box">
-        <h1>Add  Patient</h1>
+//     return (
+//         <div className="AddPatientInHeb Box">
+//              <h1>הוספת פרטי חולה</h1>
                 
-       <form onSubmit={handleSubmit(submit)}>
-        <label>First Name</label>
-        <input type="text" autoFocus {...register("firstName")}/>
-        <br/>
-        <label>Last Name</label>
-        <input type="text" autoFocus {...register("lastName")}/>
-        <br/>
-        <label>age</label>
-        <input type="number"  {...register("age")}/>
-        <br/>
-       <label>Birth Date</label>
-        <input type="text"  {...register("birthDate")}/>
-        <br/>
-        <label>Photo Of user</label>
-        <input type="file" accept="imag/*" {...register("photoOfUser")}/>
-        <label>Country</label>
-       <input type="text"  {...register("country")}/>
-       <br/>
-      <label>City</label>
-      <input type="text"  {...register("city")}/>
-      <br/>  
-      <button>Send</button>
-     <button >Cancel</button>
-     </form>	
-        </div>
-    );
-}
+//                 <form onSubmit={handleSubmit(submit)}>
+//                  <label>שם פרטי</label>
+//                  <input type="text" autoFocus {...register("firstName")}/>
+//                  <br/>
+//                  <label>שם משפחה</label>
+//                  <input type="text" autoFocus {...register("lastName")}/>
+//                  <br/>
+//                  <label>גיל</label>
+//                  <input type="number"  {...register("age")}/>
+//                  <br/>
+//                 <label>מין</label>
+//                 <br/>
 
-export default AddPatient;
+//                 <input type="radio"  {...register("sex")}/>
+//                  <br/>
+//                 <label>תאריך לידה</label>
+//                  <input type="text"  {...register("birthDate")}/>
+//                  <br/>
+//                  <label>פוטו</label>
+//                  <input type="file" accept="imag/*" {...register("photoOfUser")}/>
+//                  <label>מדינה</label>
+//                 <input type="text"  {...register("country")}/>
+//                 <br/>
+//                <label>עיר</label>
+//                <input type="text"  {...register("city")}/>
+//                <br/>  
+//                <button>שלח</button>
+//               <button >בטל</button>
+//               </form>	
+			
+//         </div>
+//     );
+
+
+// }
+
+// export default AddPatientInHeb;
+
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import store from '../../../Redux/ReduxStore/Store';
+import Patient from '../../../Models/PatientsModel/PatientModel/Patient-model';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+function AddPatientInHeb() {
+    const getSignsOfPaintOject={...store.getState().PainsAppState.signsOFPain}
+    const { control, handleSubmit } =  useForm();
+
+    async function onSubmit(data1:any):Promise<void> {
+        try {
+        
+        // const formData = new FormData();
+        // formData.append("firstName",patient.firstName);
+        // formData.append("lastName",patient.lastName);
+        // formData.append("age",patient.age.toString());
+        // formData.append("birthDate",patient.birthDate);
+        // formData.append("photoOfUser",patient.photoOfUser[0]);
+        // formData.append("country",patient.country);
+        // formData.append("city",patient.city);
+
+//  in addPatientInHeb change 25-41
+        const patient:Patient={lastName:data1.lastName , firstName:data1.firstName,
+        sex:data1.gender, email:data1.email, birthDate:data1.birthdate, country:data1.country}
+        console.log(patient)
+        const { data } = await axios.post(`http://localhost:5002/api/v1/email/send-mail`,
+         {  
+            result: store.getState().PainsAppState,
+            patient: patient,
+        });
+            if(!data.status)
+                console.error("mail is not send");
+            else {
+                const { status, error } = data;
+            }
+
+  
+        }
+        catch (error) {
+            console.error(error);
+          }
+
+        //navigate("/Main")
+    }
+    const navigate = useNavigate();
+
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* First Name */}
+      <div>
+        <label htmlFor="firstName">First Name:</label>
+        <Controller
+          name="firstName"
+          control={control}
+          render={({ field }) => <input type="text" id="firstName" {...field} />}
+        />
+      </div>
+
+      {/* Last Name */}
+      <div>
+        <label htmlFor="lastName">Last Name:</label>
+        <Controller
+          name="lastName"
+          control={control}
+          render={({ field }) => <input type="text" id="lastName" {...field} />}
+        />
+      </div>
+
+      {/* Birthdate */}
+      <div>
+        <label htmlFor="birthdate">Birthdate:</label>
+        <Controller
+          name="birthdate"
+          control={control}
+          render={({ field }) => <input type="date" id="birthdate" {...field} />}
+        />
+      </div>
+
+      {/* Gender */}
+      <div>
+        <label htmlFor="gender">Gender:</label>
+        <Controller
+          name="gender"
+          control={control}
+          render={({ field }) => (
+            <select id="gender" defaultValue={"male"} {...field}>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          )}
+        />
+      </div>
+
+      {/* Email */}
+      <div>
+        <label htmlFor="email">Email:</label>
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => <input type="email" id="email" {...field} />}
+        />
+      </div>
+
+      {/* Country */}
+      <div>
+        <label htmlFor="country">Country:</label>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field }) => (
+            <select id="country" {...field}>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+              {/* Add more countries as needed */}
+            </select>
+          )}
+        />
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default AddPatientInHeb;
+
+

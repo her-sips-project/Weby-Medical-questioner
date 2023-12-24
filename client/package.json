@@ -12,12 +12,13 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.3.3",
-    "cloudmailin": "^0.0.2",
+    "axios": "^1.6.2",
+    "cloudmailin": "0.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.32.2",
+    "react-hook-form": "^7.49.2",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "serve": "^14.2.0",
     "typescript": "^4.7.4",
@@ -46,6 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-    
   }
 }

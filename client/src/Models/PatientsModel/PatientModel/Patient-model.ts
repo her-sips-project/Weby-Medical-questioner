@@ -1,15 +1,15 @@
 interface Patient {
-_id:string;
+_id?:string;
 firstName:string;
 lastName:string;
-age:number;
+age?:number;
 sex:string;
 birthDate:string;
-photoOfUser:FileList;
+photoOfUser?:FileList;
 country:string;
-city:string;
-date:string;
-time:string;
+city?:string;
+date?:string;
+time?:string;
 email:string;
 }
 export default Patient;
