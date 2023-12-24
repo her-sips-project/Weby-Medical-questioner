@@ -5,6 +5,7 @@ import HandThumbsUp from "../../../shared/HandThumbsUp/HandThumbsUp";
 import HandThumbDown from './../../../shared/HandThumbDown/HandThumbDown';
 import { SyntheticEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import AddPatientInHeb from "../../../PatientsArea/AddPatient/AddPatient";
 interface ResultsProps {
     signsOfPain?:SignsOfPain;
     patient?:Patient;
@@ -17,7 +18,9 @@ function Results(props:ResultsProps): JSX.Element {
     navigate("/AddPatient")
   }
     return (
+      
         <div className="Results">
+            
             <div className="ResultsDiv1 Box" >
             <h3>Details Of Patient </h3>
            <label>First Name:{props.patient?.firstName}</label> 
@@ -32,7 +35,10 @@ function Results(props:ResultsProps): JSX.Element {
             <br/>
             <label>city:{props.patient?.city}</label> 
             <br/>
+       
             </div>
+
+
             <div  className="ResultsDiv2 Box"  >
             <h3> Results Of Signs Of Paint </h3>
            <label> Difficulty swallowing liquids:{props.signsOfPain?.difficultySwallowingLiquids?
@@ -77,6 +83,7 @@ function Results(props:ResultsProps): JSX.Element {
             <br/>
             <label>Total:{props?.signsOfPain?.numberOfSignsOfPain} out of 10</label>
             </div>
+       
             <br/>
             <p>Are Yuo agree to send the results to sips.study@gmail.com</p>
             <br/>

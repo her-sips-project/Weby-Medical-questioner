@@ -1,10 +1,9 @@
 import express, { Request, Response } from "express";
-// import nodemailer from "nodemailer";
-
+ 
 export async function sendMail(req:Request, res:Response) {
   try {
-  
-    const {  result, patient } = req.body;
+    const mangerEmail:any=process.env.EMAIL;
+    const {  result, patient, agreementSend } = req.body;
     if( { result, patient})
     {
       const nodemailer = require("nodemailer");
@@ -15,13 +14,39 @@ export async function sendMail(req:Request, res:Response) {
           pass: process.env.PASSWORD,
         },
       });
+      const emailAddresses=[String];
 
+      if(patient.email!= null)
+      emailAddresses.push(patient.email)
+
+      if(agreementSend)
+      emailAddresses.push(mangerEmail)
+
+        console.log("first")
       const mailOptions = {
         from: 'SIPS',
-        to: `${process.env.EMAIL}`,
+         to:  emailAddresses,
         subject: `${patient.firstName} , ${patient.lastName} - results`,
-        text: `${JSON.stringify(result)}`,
-        html: `${JSON.stringify(patient)}`,
+        text: `  ${JSON.stringify(patient)}`,
+        html: `
+        <table>
+  <tr>
+    <th>Quation</th>
+    <th>result</th>
+
+  </tr>
+  <tr>
+    <td>difficultySwallowingLiquids</td>  
+    <td> ${JSON.parse(result.signsOFPain.difficultySwallowingLiquids)}</td>
+
+  </tr>
+  <tr>
+    <td>${patient.sex}</td>
+    <td>${JSON.parse(result.signsOFPain.difficultrySwallowingSolidFood)}</td>
+    <td>${JSON.parse(result.signsOFPain.difficultySwallowingPills)}</td>
+  </tr>
+</table>
+      `,
       };
  
       transporter.sendMail(mailOptions, function (error: any, info: { response: string; }) {
