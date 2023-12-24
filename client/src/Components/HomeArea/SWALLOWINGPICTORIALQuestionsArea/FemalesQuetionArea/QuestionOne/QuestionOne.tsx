@@ -10,6 +10,8 @@ import PossibilityOfNextTothetweenQuestions from "../../../PossibilityOfNextToth
 function QuestionOne():JSX.Element {
         const navigate = useNavigate();
         const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
+        const media = { ...store.getState().PatientsAppState.mediaImgsState };
+        console.log(media)
         function  wellHappenClickHandlerOnQuestionOneForFemaleImage():void{
             if(signsOfPaint.difficultySwallowingLiquids === true ){
                 signsOfPaint.difficultySwallowingLiquids = false;

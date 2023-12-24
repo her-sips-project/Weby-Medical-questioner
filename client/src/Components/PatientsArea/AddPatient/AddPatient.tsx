@@ -8,24 +8,24 @@ import Mail from "nodemailer/lib/mailer";
 // const nodemailer = require("nodemailer");
 
 function AddPatient(): JSX.Element {
-    // async function main() {
-    //     //const = "hostname from account page";
-    //     //const = "username from account page";
-    //    // const = "password from account page";
+//     async function main() {
+//         //const = "hostname from account page";
+//         //const = "username from account page";
+//        // const = "password from account page";
       
-    //     const transporter = nodemailer.createTransport({
-    //       //host: hostname,
-    //       //port: 587,
-    //       secure: false,
-    //       requireTLS: true,
-    //       auth: {
-    //        // user: username,
-    //         //pass: password,
-    //       },
-    //       logger: true
-    //     });
+//         const transporter = nodemailer.createTransport({
+//           //host: hostname,
+//           //port: 587,
+//           secure: false,
+//           requireTLS: true,
+//           auth: {
+//            // user: username,
+//             //pass: password,
+//           },
+//           logger: true
+//         });
 
-    //========================================================
+//     ========================================================
 // const  rom = {{{firstname}}} + {{{lastname}}}
 // const Email = {{{email}}}
 // const Phone ={{{phone}}}
@@ -38,7 +38,7 @@ function AddPatient(): JSX.Element {
 // alert("An error occurred, Please try again", error.text);
 // });
 // };
-    //===============================================
+//     ===============================================
     const navigate = useNavigate();
     const{register,handleSubmit} = useForm<Patient>();
     async function submit(patient:Patient):Promise<void> {

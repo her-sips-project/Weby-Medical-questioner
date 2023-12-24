@@ -23,7 +23,7 @@ function QuestionSixForMale(): JSX.Element {
     signsOfPaint.numberOfSignsOfPain = signsOfPaint.numberOfSignsOfPain ;
     signsOfPainsStateService.getSignsOfPainsState(signsOfPaint); 
     navigate('/QuestionSevenForMale');
-}
+}    
     }
     function  badlyHappenClickHandlerOnQuestionSixForMaleImage():void{
         if(signsOfPaint.ChokingDuringMeals === true) {

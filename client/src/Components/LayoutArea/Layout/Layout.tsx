@@ -2,10 +2,47 @@ import { BrowserRouter, useNavigate } from "react-router-dom";
 import "./Layout.css";
 import Routing from "../Routing/Routing";
 import HomePage from "../../HomeArea/HomePage/HomePage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RoutingHeb from "../RoutingHeb/RoutingHeb";
 import Logo from "../Logo/Logo";
+import axios from "axios";
+import store from "../../../Redux/ReduxStore/Store";
+import { addMediaImgsModelAction } from "../../../Redux/PatientsModelAppState/PatientsModel-AppState";
 function Layout(): JSX.Element {
+  const [assets, setAssets] = useState([]);
+
+  //  בכל קומפוננטה נכתוב שורה זו על מנת לקרוא מהרידקס
+  // const signsOfPaint = {...store.getState().PatientsAppState};
+
+  useEffect(() => {
+    const getImage = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5001/api/v1/media/getAllImgs"
+        );
+
+        setAssets(response.data);
+        store.dispatch(addMediaImgsModelAction(response.data));
+
+        //   // המרת נתוני התמונה ל-base64
+        //   const base64 = btoa(
+        //     new Uint8Array(response.data).reduce(
+        //       (data, byte) => data + String.fromCharCode(byte),
+        //       ""
+        //     )
+        //   );
+
+        //   // שמירת התמונה בצורת base64 להצגה ב-<img>
+        //   const imageDataUrl = `data:image/jpeg;base64,${base64}`;
+        //   setImageSrc(imageDataUrl);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
+
+    getImage();
+  }, []);
+
   const [firstStateStep, setFirstStateStep] = useState<boolean>(false);
   const [getEnglishWayStateStep, setEnglishWayStateStep] =
     useState<boolean>(false);
@@ -24,7 +61,7 @@ function Layout(): JSX.Element {
 
   if (!firstStateStep) {
     return (
-      <div className="Layout1">
+      <div className="Layout1 container	">
         <header>
           <h1>SWALLOWING IMPAIRMENT PICTORIAL SURVEY</h1>
           <h2> שאלון חזותי לאיתור הפרעות בליעה</h2>
@@ -47,7 +84,7 @@ function Layout(): JSX.Element {
               Our team
             </button>
           </div>
-          <div>
+          <div className="container	">
             <button
               className="ButtonINMain Box"
               title="
