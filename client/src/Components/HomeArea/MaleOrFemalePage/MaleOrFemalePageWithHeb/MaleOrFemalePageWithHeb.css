@@ -1,12 +1,16 @@
 
+.questionBody{
+    background-color: #f1f4fc;
+}
+
 .MaleOrFemalePageWithHeb  {
     /* margin:0;
     padding:0;
     box-sizing:border-box;
     height:100%; */
-     background-color: 1px solid black;
     /*background-color: white;
     flex-wrap:wrap;*/
+    background-color: #f1f4fc;
 }
 
 .mainImgs{
@@ -18,6 +22,7 @@
     .mainImgs{
         display: flex; 
         flex-direction: column;
+        align-items: center;
     }
     
 }

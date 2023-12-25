@@ -27,11 +27,11 @@ function MaleOrFemalePageWithHeb(): JSX.Element {
     navigate("/QuestionOneForMaleWithHebHelp");
   }
   return (
-    <>
-    <Navbar/>
-      <div className="MaleOrFemalePageWithHeb  px-0 container border  h-75">
-        <div className="mainImgs border h-100">
-          <div className="imgL w-50 m-3 border  h-80">
+    <div className="questionBody  h-100 ">
+      <Navbar />
+      <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
+        <div className="mainImgs  h-100">
+          <div className="imgL w-50 m-3  h-80">
             <img
               className="mw-100  mh-100"
               src={MalePageWithHeb}
@@ -39,7 +39,7 @@ function MaleOrFemalePageWithHeb(): JSX.Element {
             />
             <Link to={"/QuestionOneForMale"} title="הבא"></Link>
           </div>
-          <div className="imgR w-50 m-3 border  h-80">
+          <div className="imgR w-50 m-3  h-80">
             <img
               className=" mw-100 mh-100 "
               src={femalePageWithHeb}
@@ -50,7 +50,8 @@ function MaleOrFemalePageWithHeb(): JSX.Element {
         </div>
 
         <div className="bottomPage">
-          {" "}
+       
+        {" "}
           <Link
             to={""}
             title="לפניך מוצגות שתי תמונות של מגדרים. בחר את המגדר שמייצג אותך"
@@ -70,7 +71,7 @@ function MaleOrFemalePageWithHeb(): JSX.Element {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

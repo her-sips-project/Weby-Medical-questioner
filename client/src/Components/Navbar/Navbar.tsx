@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-// import allCountry from "country-flag-icons/react/3x2";
-import { US } from "country-flag-icons/string/3x2";
-
-import allFlags from "country-flag-icons/react/3x2";
+import allCountry from "country-flag-icons/react/3x2";
+import * as allFlags from "country-flag-icons/react/3x2";
 import "./navStyle.css";
 
 const Navbar = () => {
@@ -14,26 +12,25 @@ const Navbar = () => {
   };
   const flags = [];
 
-  for (const flag in allFlags) {
-    console.dir(flag);
-    flags.push(flag);
-  }
-
   return (
     <div className="navDiv">
       <ul className="navList">
         <li>TEAM</li>
         <li>ABOUT</li>
-        <allFlags.IL onClick={popUp} style={{ width: "30px" }} />
+        <li>
+          <allFlags.IL onClick={popUp} style={{ width: "30px" }} />
+        </li>
       </ul>
 
       {isClicked ? (
         <div className="popUpDiv">
-          {flags.map((flag) => {
-            const flagComp1 = `allFlags`+"."+`${flag}`; 
-            console.log(flagComp1)
-            return <{`$`} onClick={popUp} style={{ width: "30px" }} />;
-          })}
+          <allFlags.IL className="flag" onClick={popUp} />
+          <allFlags.US className="flag" onClick={popUp} />
+          <allFlags.SL className="flag" onClick={popUp} />
+          <allFlags.SA className="flag" onClick={popUp} />
+          <allFlags.CF className="flag" onClick={popUp} />
+          <allFlags.DK className="flag" onClick={popUp} />
+          {/* <allFlags.IL onClick={popUp} style={{ width: "30px" }} /> */}
         </div>
       ) : null}
     </div>
