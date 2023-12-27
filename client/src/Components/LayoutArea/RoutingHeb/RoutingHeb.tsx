@@ -25,11 +25,16 @@ import ResulOfQuestionsFemaleInHeb from "./../../HomeArea/ResultOFAllQuestions/R
 import ResultsInHeb from "./../../HomeArea/ResultOFAllQuestions/ResultOFAllQuestionsInHeb/ResultsInHeb/ResultsInHeb";
 import AddPatientInHeb from "./../../PatientsArea/AddPatientInHeb/AddPatientInHeb";
 import Layout from "../Layout/Layout";
+import HomePage01 from "../../HomeArea/HomePage/HomePage01";
 
 function RoutingHeb(): JSX.Element {
   return (
     <>
       <Routes>
+        <Route
+          path="/HomePage01"
+          element={<HomePage01/>}
+        />
         <Route
           path="/QuestionOneWithHebHelp"
           element={<QuestionOneWithHebHelp />}
@@ -120,6 +125,7 @@ function RoutingHeb(): JSX.Element {
         />
         <Route path="/ResultsInHeb" element={<ResultsInHeb />} />
         <Route path="/AddPatientInHeb" element={<AddPatientInHeb />} />
+        <Route path="/MaleOrFemaleHeb" element={<MaleOrFemalePageWithHeb />} />
         <Route path="*" element={<MaleOrFemalePageWithHeb />} />
       </Routes>
     </>

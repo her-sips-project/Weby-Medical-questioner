@@ -26,11 +26,12 @@ import ResulOfQuestionsMale from './../../HomeArea/ResultOFAllQuestions/ResulOfQ
 import AddPatient from './../../PatientsArea/AddPatient/AddPatient';
 import ResulOfQuestionsFemal from './../../HomeArea/ResultOFAllQuestions/ResulOfQuestionsFemal/ResulOfQuestionsFemal';
 import Layout from './../Layout/Layout';
+import HomePage01 from "../../HomeArea/HomePage/HomePage01";
 function Routing(): JSX.Element {
     return (
         <div className="Routing">
        <Routes> 
-       <Route path="/HomePage" element={<HomePage/>} /> 
+       <Route path="/HomePage" element={<HomePage01/>} /> 
        <Route path="/MaleOrFemalePage" element={<MaleOrFemalePage/>} /> 
        <Route path="/question-one-for-female" element={<QuestionOne/>} /> 
        <Route path="/QuestionTwo" element={<QuestionTwo/>} />

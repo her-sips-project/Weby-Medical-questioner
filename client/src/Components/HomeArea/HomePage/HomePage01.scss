@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap");
+
+.homePage01::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../../../Assets/design/backroundHomePage.jpg");
+  background-size: cover;
+  filter: brightness(70%) hue-rotate(355deg);
+  z-index: -1; /* כדי לוודא שהתמונה תהיה מאחורי התוכן */
+}
+.homePage01 {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(50%) hue-rotate(30deg);
+  //   filter: brightness(50%) hue-rotate(180deg);
+  //   background-image: url("../../../Assets/design/backroundHomePage.jpg");
+  background-size: 100vw;
+  background-position: cover;
+  background-repeat: no-repeat;
+  color: #ffff;
+
+  .mainDiv {
+    padding: 2rem 4rem;
+    text-align: left;
+    float: left;
+    font-style: normal;
+    h1 {
+      width: 35rem;
+      font-size: 42px;
+      font-family: "Poppins";
+    }
+    .description {
+      width: 25rem;
+      margin: 40px 0;
+      font-size: 20px;
+      color: #dedede;
+      font-family: "Poppins";
+    }
+    button {
+      width: 18rem;
+      font-family: "Roboto";
+      font-size: 32px;
+      font-weight: 500;
+      color: white;
+      letter-spacing: 0.25px;
+      background-color: #50b0a2;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.125);
+      .iconStart{
+        font-size: 20px;
+        font-weight:bold;
+      }
+      &:hover {
+        box-shadow: 3px 7px 5px rgba(0, 0, 0, 0.125);
+        scale: 1.01;
+
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 580px) {
+}

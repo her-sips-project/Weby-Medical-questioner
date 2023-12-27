@@ -4,12 +4,14 @@ import Layout from './Components/LayoutArea/Layout/Layout';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import HomePage01 from './Components/HomeArea/HomePage/HomePage01';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-  <Layout/>
+  {/* <Layout/> */}
+  <HomePage01/>
   </React.StrictMode>
 );
 

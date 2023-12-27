@@ -10,6 +10,12 @@
     /* margin: 0px 30px ; */
     padding: 0px 30px;
     background-color: #f1f4fc;
+    color: black;
+}
+.nightMode{
+    background-color: transparent ;
+    color: rgb(255, 255, 255);
+
 }
 
 .navList{

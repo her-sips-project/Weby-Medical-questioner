@@ -17,12 +17,14 @@ function Layout(): JSX.Element {
   useEffect(() => {
     const getImage = async () => {
       try {
-        const response = await axios.get(
+        const { data } = await axios.get(
           "http://localhost:5001/api/v1/media/getAllImgs"
         );
 
-        setAssets(response.data);
-        store.dispatch(addMediaImgsModelAction(response.data));
+        // JSON.parse(data)
+        // setAssets(JSON.parse(data));
+        setAssets(data);
+        store.dispatch(addMediaImgsModelAction(data));
 
         //   // המרת נתוני התמונה ל-base64
         //   const base64 = btoa(
@@ -62,12 +64,6 @@ function Layout(): JSX.Element {
   if (!firstStateStep) {
     return (
       <div className="Layout1 container	">
-        <header>
-          <h1>SWALLOWING IMPAIRMENT PICTORIAL SURVEY</h1>
-          <h2> שאלון חזותי לאיתור הפרעות בליעה</h2>
-
-          <Logo />
-        </header>
         <aside>
           <div>
             <button
