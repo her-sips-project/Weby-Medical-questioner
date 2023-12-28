@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import store from '../../../Redux/ReduxStore/Store';
 import Patient from '../../../Models/PatientsModel/PatientModel/Patient-model';
@@ -11,11 +11,12 @@ function AddPatientInHeb() {
     const { control, handleSubmit } =  useForm();
 
     async function onSubmit(data1:any):Promise<void> {
-        try {
-        
-
+        try {  
+          if(data1.gender == null)
+              data1.gender='male'
         const patient:Patient={lastName:data1.lastName , firstName:data1.firstName,
-        sex:data1.gender, email:data1.email, birthDate:data1.birthdate, country:data1.country }
+        sex:data1.gender, email:data1.email, birthDate:data1.birthdate, country:data1.country}
+
         const { data } = await axios.post(`http://localhost:5002/api/v1/email/send-mail`,
          {  
             result: store.getState().PainsAppState,
@@ -25,7 +26,7 @@ function AddPatientInHeb() {
             if(!data.status)
                 console.error("mail is not send");
             else {
-                // navigate("/Results")
+                const { status, error } = data;
             }
 
   
@@ -34,13 +35,13 @@ function AddPatientInHeb() {
             console.error(error);
           }
 
-
+        //navigate("/Main")
     }
     const navigate = useNavigate();
 
 
     const handleCancel = () => {
-            navigate("/HomePage")
+    
       };
 
   return (
@@ -71,7 +72,7 @@ function AddPatientInHeb() {
         <Controller
           name="birthdate"
           control={control}
-          render={({ field }) => <input type="date" id="birthdate" {...field} />}
+          render={({ field }) => <input required type="date" id="birthdate" {...field} />}
         />
       </div>
 
@@ -82,7 +83,7 @@ function AddPatientInHeb() {
           name="gender"
           control={control}
           render={({ field }) => (
-            <select id="gender" defaultValue={"male"} {...field}>
+            <select  id="gender" defaultValue={"male"} {...field}>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>

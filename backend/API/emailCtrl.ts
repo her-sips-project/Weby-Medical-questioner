@@ -1,17 +1,13 @@
 import express, { Request, Response } from "express";
 import calculateAge from "../assets/CalculateAge";
- 
-export async function sendMail(req:Request, res:Response) {
+
+export async function sendMail(req: Request, res: Response) {
   try {
-
-
-
-    const mangerEmail:any=process.env.EMAIL;
-    const {  result, patient, agreementSend } = req.body;
+    const mangerEmail: any = process.env.EMAIL;
+    const { result, patient, agreementSend } = req.body;
     const age = calculateAge(patient.birthDate);
-    if( { result, patient})
-    {
-     
+    if ({ result, patient }) {
+
       const nodemailer = require("nodemailer");
       const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -20,22 +16,22 @@ export async function sendMail(req:Request, res:Response) {
           pass: process.env.PASSWORD,
         },
       });
-      const emailAddresses=[String];
+      const emailAddresses = [String];
 
-      if(patient.email!= null)
-      emailAddresses.push(patient.email)
+      if (patient.email != null)
+        emailAddresses.push(patient.email)
 
-      if(agreementSend)
-      emailAddresses.push(mangerEmail)
+      if (agreementSend)
+        emailAddresses.push(mangerEmail)
 
-        console.log("first")
+      console.log("first")
       const mailOptions = {
         from: 'SIPS',
-         to:  emailAddresses,
+        to: emailAddresses,
         subject: `${patient.firstName} , ${patient.lastName} - תוצאות`,
         text: `  ${JSON.stringify(patient)}`,
-        html: 
-        ` <html  lang="he" >
+        html:
+          ` <html  lang="he" >
         <head>
           <style>
           *{
@@ -129,15 +125,14 @@ ${JSON.parse(result.signsOFPain.numberOfSignsOfPain)} /10
 
 </tr>
 
-            <!-- ניתן להוסיף יותר שורות ותאים כפי שנדרש -->
           </table>
         </body>
       </html>`
-        
-        
-,
+
+
+        ,
       };
- 
+
       transporter.sendMail(mailOptions, function (error: any, info: { response: string; }) {
         if (error) {
           console.log(error);
@@ -148,12 +143,12 @@ ${JSON.parse(result.signsOFPain.numberOfSignsOfPain)} /10
 
       res.send({ status: true });
 
-       
-    } 
-  
-  else {
-        res.send({ status: false });
-  }
+
+    }
+
+    else {
+      res.send({ status: false });
+    }
 
   } catch (error) {
     console.error(error);
