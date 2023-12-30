@@ -1,8 +1,10 @@
-import React, { FC, useState } from "react";
-import allCountry from "country-flag-icons/react/3x2";
 import * as allFlags from "country-flag-icons/react/3x2";
+import { FC, useEffect, useState } from "react";
+import SignsOfPain from "../../Models/SignsOfPainsModel/SignsOfPainModel/Signs-Of-Pain-Model";
+import store from "../../Redux/ReduxStore/Store";
+import { addPainAction } from "../../Redux/SignsOfPainsAppState/signs-0f-pains-app-state";
+import signsOfPainsStateService from "../../Services/SignsOfPainsAppStateServic/Signs-of-pains-app-state-servic";
 import "./navStyle.css";
-import { EnumType } from "typescript";
 
 interface NavbarProps {
   mode?: string;
@@ -11,10 +13,31 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ mode, language }) => {
   const [isClicked, setIsClicked] = useState(false);
-  const [lang, setLang] = useState("english");
+  const [lang, setLang] = useState("");
+
+  const langStore = {
+    ...store.getState().PainsAppState.signsOFPain,
+  };
+  const signsOFPain = { ...store.getState().PainsAppState };
+  
+  // useEffect(() => {
+  //   if (signsOFPain) {
+  //     if (signsOFPain.signsOFPain !== undefined) {
+  //       signsOFPain.signsOFPain.language = lang;
+
+  //       signsOFPain.arrayOfImages = { ...(signsOFPain.arrayOfImages as any) };
+  //       signsOfPainsStateService.getSignsOfPainsState(
+  //         signsOFPain as SignsOfPain
+  //       );
+  //     }
+  //   }
+  // });
 
   const popUp = (lang: string) => {
-    console.log("hi im clicked!");
+    langStore.language = lang;
+    store.dispatch(addPainAction(langStore));
+    signsOfPainsStateService.getSignsOfPainsState(langStore);
+
     setLang(lang);
     setIsClicked(!isClicked);
   };

@@ -2,19 +2,18 @@ import mongoose, { Schema, model } from "mongoose";
 import MediaModel, { Gender } from "./mediaSchema";
 import fs from "fs";
 
-export const handleGetAllImgs = async (req:any, res:any) => {
+export const handleGetAllImgs = async (req: any, res: any) => {
   try {
+    console.log("im in server handleGetAllImgs");
     const response = await MediaModel.find({});
-
     console.log(response);
-    res.send({response})
+    res.json(response);
   } catch (error) {
     console.error(error);
   }
 };
 
 // handleGetAllImgs();
-
 
 // ---UPLOADING--------------------------------
 // --

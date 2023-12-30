@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Layout from './Components/LayoutArea/Layout/Layout';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import reportWebVitals from './reportWebVitals';
-import HomePage01 from './Components/HomeArea/HomePage/HomePage01';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Layout from "./Components/LayoutArea/Layout/Layout";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import reportWebVitals from "./reportWebVitals";
+import HomePage01 from "./Components/HomeArea/HomePage/HomePage01";
+import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-  {/* <Layout/> */}
-  <HomePage01/>
+    <HomePage01 />
   </React.StrictMode>
 );
 
