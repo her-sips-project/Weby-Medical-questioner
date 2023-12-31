@@ -9,6 +9,7 @@ import axios from "axios";
 import signsOfPainsStateService from "../../../Services/SignsOfPainsAppStateServic/Signs-of-pains-app-state-servic";
 import { PainsAppState } from "../../../Redux/SignsOfPainsAppState/signs-0f-pains-app-state";
 import Main from "../../LayoutArea/Layout/Main/main";
+import Routing from "../../LayoutArea/Routing/Routing";
 
 const HomePage01 = () => {
   // const navigator = useNavigate()
@@ -23,7 +24,6 @@ const HomePage01 = () => {
 
         if (signsOFPain?.language) {
           const language = signsOFPain.language;
-          console.log("how many times");
           setLanguage(language);
         }
       }
@@ -44,12 +44,10 @@ const HomePage01 = () => {
 
   function letsStartedInEnglish() {
     setIsStart(!isStart);
-    // navigator("/MaleOrFemale")
     console.log(isStart);
   }
   function letsStartedInHebrew() {
     setIsStart(!isStart);
-    // navigator("/MaleOrFemaleHeb")
     console.log(isStart);
   }
   if (!isStart)
@@ -94,6 +92,19 @@ const HomePage01 = () => {
       </>
     );
 
+  if (isStart && language == "hebrew") {
+    return (
+      <BrowserRouter>
+        <RoutingHeb />
+      </BrowserRouter>
+    );
+  }
+  if (isStart && language == "english")
+    return (
+      <BrowserRouter>
+        <Routing />
+      </BrowserRouter>
+    );
   else
     return (
       <BrowserRouter>

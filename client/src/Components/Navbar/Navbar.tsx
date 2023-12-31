@@ -19,19 +19,12 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
     ...store.getState().PainsAppState.signsOFPain,
   };
   const signsOFPain = { ...store.getState().PainsAppState };
-  
-  // useEffect(() => {
-  //   if (signsOFPain) {
-  //     if (signsOFPain.signsOFPain !== undefined) {
-  //       signsOFPain.signsOFPain.language = lang;
 
-  //       signsOFPain.arrayOfImages = { ...(signsOFPain.arrayOfImages as any) };
-  //       signsOfPainsStateService.getSignsOfPainsState(
-  //         signsOFPain as SignsOfPain
-  //       );
-  //     }
-  //   }
-  // });
+  useEffect(() => {
+    langStore.language = lang;
+    store.dispatch(addPainAction(langStore));
+    signsOfPainsStateService.getSignsOfPainsState(langStore);
+  }, []);
 
   const popUp = (lang: string) => {
     langStore.language = lang;
