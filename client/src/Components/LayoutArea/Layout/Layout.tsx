@@ -1,9 +1,8 @@
 import { BrowserRouter, useNavigate } from "react-router-dom";
 import "./Layout.css";
-import Routing from "../Routing/Routing";
 import HomePage from "../../HomeArea/HomePage/HomePage";
 import { useEffect, useState } from "react";
-import RoutingHeb from "../RoutingHeb/RoutingHeb";
+import RoutingHeb from "../Routing/Routing";
 import Logo from "../Logo/Logo";
 import axios from "axios";
 import store from "../../../Redux/ReduxStore/Store";
@@ -158,9 +157,7 @@ function Layout(): JSX.Element {
     if (getEnglishWayStateStep && firstStateStep) {
       return (
         <BrowserRouter>
-          <div className="Layout">
-            <Routing />
-          </div>
+          <div className="Layout">{/* <Routing /> */}</div>
         </BrowserRouter>
       );
     }

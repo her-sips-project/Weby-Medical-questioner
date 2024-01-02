@@ -6,9 +6,17 @@ import signsOfPainsStateService from "../../../../../Services/SignsOfPainsAppSta
 import PossibilityOfBackTothetweenQuestions from "../../../PossibilityOfBackTothetweenQuestions/PossibilityOfBackTothetweenQuestions";
 import PossibilityOfNextTothetweenQuestions from "../../../PossibilityOfNextTothetweenQuestions/PossibilityOfNextTothetweenQuestions";
 import store from "../../../../../Redux/ReduxStore/Store";
+import useLanguageNavigationToHeb from "../../../../../Hooks/hooks";
+import Navbar from "../../../../Navbar/Navbar";
+import QuestNum from "../../../../LayoutArea/QuestNum";
+import BtnsBottom from "../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
 function QuestionTwoForMale(): JSX.Element {
     const navigate = useNavigate();
     const signsOfPaint = {...store.getState().PainsAppState.signsOFPain};
+    const customRoutes = "/QuestionTowForMaleWithHebHelp";
+    useLanguageNavigationToHeb(customRoutes);
+
+    const  title="There are two images representing experiences while swallowing solid foods.Choose the image that best represents your experience. "
     function  wellHappenClickHandlerOnQuestionTwoForMaleForMaleImage():void{
         if(signsOfPaint.difficultrySwallowingSolidFood === true) {
             if(signsOfPaint.numberOfSignsOfPain !== undefined) {
@@ -42,7 +50,45 @@ function QuestionTwoForMale(): JSX.Element {
             signsOfPainsStateService.getSignsOfPainsState(signsOfPaint); 
             navigate('/QuestionThreeForMale');
         }       
-    }
+    } return (
+        <div className="questionBody  h-100 ">
+          <Navbar />
+          <QuestNum currentQuestNum={2} />
+          <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
+            <div className="mainImgs  h-100">
+              <div className="imgL w-50 m-3  h-75">
+                <img
+                  className="mw-100  mh-100"
+                  src={imageQuestionTwoForMale1}
+                  onClick={
+                    badlyHappenClickHandlerOnQuestionTwoForMaleForMaleImage
+                  }
+                />
+              </div>
+              <div className="imgR w-50 m-3  h-75">
+                <img
+                  className=" mw-100 mh-100 "
+                  src={imageQuestionTwoForMale2}
+                  onClick={
+                    wellHappenClickHandlerOnQuestionTwoForMaleForMaleImage
+                  }
+                />
+                <br />
+              </div>
+            </div>
+
+            <div className="bottomPage">
+              <BtnsBottom
+                descriptions={title}
+                clickBack={() => {
+                  navigate("/question-one-for-Male");
+                }}
+                clickNext={() => navigate("/QuestionThreeForMale")}
+              />
+            </div>
+          </div>
+        </div>
+  )
     return (
         <div className="QuestionTwoForMale">
         <div>

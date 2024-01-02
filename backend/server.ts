@@ -27,9 +27,9 @@ const server = app.listen(PORT, () => {
   console.log(`server is listening in port:${PORT} :)`);
 });
 
-mongoose.connect(`${mongo_URI}`).then(() => {
-  console.log("Connected to MongoDB!!!");
-}).catch((err: any) => console.error(err));  
+// mongoose.connect(`${mongo_URI}`).then(() => {
+//   console.log("Connected to MongoDB!!!");
+// }).catch((err: any) => console.error(err));  
 
 
 

@@ -6,14 +6,18 @@ import { Link, useNavigate } from "react-router-dom";
 import PossibilityOfBackTothetweenQuestions from "../../../PossibilityOfBackTothetweenQuestions/PossibilityOfBackTothetweenQuestions";
 import PossibilityOfNextTothetweenQuestions from "../../../PossibilityOfNextTothetweenQuestions/PossibilityOfNextTothetweenQuestions";
 import store from "../../../../../Redux/ReduxStore/Store";
-import { Navbar } from "reactstrap";
 import QuestNum from "../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import useLanguageNavigationToHeb from "../../../../../Hooks/hooks";
+import Navbar from "../../../../Navbar/Navbar";
 
 function QuestionFive(): JSX.Element {
     const navigate = useNavigate();
     const signsOfPaint = {...store.getState().PainsAppState.signsOFPain}
     const  title="There are two images representing experiences regarding your body weight. Choose the image that best represents your experience."
+    const customRoutes = "/QuestionFiveWithHebHelp";
+    useLanguageNavigationToHeb(customRoutes);
+    
     function  wellHappenClickHandlerOnQuestionFiveForFemaleImage():void{
         if(signsOfPaint.losingWeight === true) {
             signsOfPaint.losingWeight = false;
@@ -51,7 +55,7 @@ function QuestionFive(): JSX.Element {
 }
 return (
     <div className="questionBody  h-100 ">
-      <Navbar />
+      <Navbar/>
       <QuestNum currentQuestNum={5} />
       <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
         <div className="mainImgs  h-100">

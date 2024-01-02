@@ -9,7 +9,32 @@ import PossibilityOfNextTothetweenQuestions from "../../../../PossibilityOfNextT
 import Navbar from "../../../../../Navbar/Navbar";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import { useEffect, useState } from "react";
+import { PainsAppState } from "../../../../../../Redux/SignsOfPainsAppState/signs-0f-pains-app-state";
 function QuestionOneWithHebHelp(): JSX.Element {
+  const [language, setLanguage] = useState<string | undefined>("");
+  const signsOFPain = { ...store.getState().PainsAppState };
+
+  useEffect(() => {
+    const unSubscribe = signsOfPainsStateService.subscribe(
+      (painsState: PainsAppState): void => {
+        const { signsOFPain, arrayOfImages } = painsState;
+
+        if (signsOFPain?.language) {
+          const language = signsOFPain.language;
+          setLanguage(language);
+        }
+      }
+    );
+  }, []);
+
+  useEffect(()=>{
+    if(language=="english"){
+      console.log("change to english")
+      navigate("/question-one-for-female")
+    }
+  }, [language])
+
   const navigate = useNavigate();
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
@@ -44,45 +69,46 @@ function QuestionOneWithHebHelp(): JSX.Element {
       navigate("/QuestionTwoWithHebHelp");
     }
   }
-  return (
-    <div className="questionBody  h-100 ">
-      <Navbar />
-      <QuestNum currentQuestNum={1} />
-      <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
-        <div className="mainImgs  h-100">
-          <div className="imgL w-50 m-3  h-80">
-            <img
-              className="mw-100  mh-100"
-              src={ImageQuestionOneWithHebHelp1}
-              onClick={
-                badlyHappenClickHandlerOnQuestionOneWithHebHelpForFemaleImage
-              }
-            />
-          </div>
-          <div className="imgR w-50 m-3  h-80">
-            <img
-              className=" mw-100 mh-100 "
-              src={ImageQuestionOneWithHebHelp2}
-              onClick={
-                wellHappenClickHandlerOnQuestionOneWithHebHelpForFemaleImage
-              }
-            />
-            <br />
-          </div>
-        </div>
 
-        <div className="bottomPage">
-          <BtnsBottom
-            descriptions={title}
-            clickBack={() => {
-              navigate("/MaleOrFemalePageWithHeb");
-            }}
-            clickNext={() => navigate("/QuestionTwoWithHebHelp")}
-          />
+  return (
+        <div className="questionBody  h-100 ">
+          <Navbar />
+          <QuestNum currentQuestNum={1} />
+          <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
+            <div className="mainImgs  h-100">
+              <div className="imgL w-50 m-3  h-80">
+                <img
+                  className="mw-100  mh-100"
+                  src={ImageQuestionOneWithHebHelp1}
+                  onClick={
+                    badlyHappenClickHandlerOnQuestionOneWithHebHelpForFemaleImage
+                  }
+                />
+              </div>
+              <div className="imgR w-50 m-3  h-80">
+                <img
+                  className=" mw-100 mh-100 "
+                  src={ImageQuestionOneWithHebHelp2}
+                  onClick={
+                    wellHappenClickHandlerOnQuestionOneWithHebHelpForFemaleImage
+                  }
+                />
+                <br />
+              </div>
+            </div>
+
+            <div className="bottomPage">
+              <BtnsBottom
+                descriptions={title}
+                clickBack={() => {
+                  navigate("/MaleOrFemalePageWithHeb");
+                }}
+                clickNext={() => navigate("/QuestionTwoWithHebHelp")}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  );
+  )
 }
 
 export default QuestionOneWithHebHelp;

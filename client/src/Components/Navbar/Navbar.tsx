@@ -13,18 +13,10 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ mode, language }) => {
   const [isClicked, setIsClicked] = useState(false);
-  const [lang, setLang] = useState("");
+  const langStore = {...store.getState().PainsAppState.signsOFPain};
+  const [lang, setLang] = useState(langStore.language);
 
-  const langStore = {
-    ...store.getState().PainsAppState.signsOFPain,
-  };
   const signsOFPain = { ...store.getState().PainsAppState };
-
-  useEffect(() => {
-    langStore.language = lang;
-    store.dispatch(addPainAction(langStore));
-    signsOfPainsStateService.getSignsOfPainsState(langStore);
-  }, []);
 
   const popUp = (lang: string) => {
     langStore.language = lang;
@@ -34,7 +26,20 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
     setLang(lang);
     setIsClicked(!isClicked);
   };
-  const flags = [];
+  
+  useEffect(() => {
+    if (!langStore.language) {
+      setLang("english");
+      langStore.language = lang;
+      store.dispatch(addPainAction(langStore));
+    } else {
+      console.log("else status");
+      setLang(langStore.language);
+      langStore.language = lang;
+      store.dispatch(addPainAction(langStore));
+      signsOfPainsStateService.getSignsOfPainsState(langStore);
+    }
+  }, [lang]);
 
   return (
     <div className={`navDiv  ${!mode ? "" : "nightMode"}`}>

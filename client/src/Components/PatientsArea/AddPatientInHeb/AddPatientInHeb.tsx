@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Patient from "../../../Models/PatientsModel/PatientModel/Patient-model";
-import "./AddPatientInHeb.css";
 import store from "../../../Redux/ReduxStore/Store";
 import axios from "axios";
 import { SyntheticEvent, useState } from "react";
+import "./AddPatientInHeb.scss";
+
 function AddPatientInHeb(): JSX.Element {
   const navigate = useNavigate();
   const [isAgreeSips, setIsAgreeSips] = useState(false);
@@ -56,7 +57,7 @@ function AddPatientInHeb(): JSX.Element {
     navigate("/");
   };
   return (
-    <div className="AddPatientInHeb  container w-50" dir="rtl">
+    <div className="AddPatientInHeb  container w-50">
       <form onSubmit={handleSubmit(submit)}>
         <label>שם פרטי</label>
         <input type="text" autoFocus {...register("firstName")} />
@@ -71,17 +72,17 @@ function AddPatientInHeb(): JSX.Element {
         <input type="text" {...register("city")} />
         <div>
           <label className="chekbox1">
-            <input type="checkbox" name="sips" onChange={isChecked} />
             אני מסכים.ה לשלוח את התוצאות באנונימיות למטרות מחקר
+            <input type="checkbox" name="sips" onChange={isChecked} />
           </label>
           <label>
+            שלחו אליי את התוצאות במייל
             <input
               type="checkbox"
               id="sendToMe"
               name="changeCheckbox"
               onChange={isChecked}
             />
-            שלחו אליי את התוצאות במייל
           </label>
           {isAgreeHimself ? (
             <>
@@ -96,7 +97,9 @@ function AddPatientInHeb(): JSX.Element {
           )}
         </div>
         <button className="sendBtn">שלח לי את התוצאות</button>
-        <button onClick={backToHomPage} className="cancelBtn">ביטול</button>
+        <button onClick={backToHomPage} className="cancelBtn">
+          ביטול
+        </button>
       </form>
       {/* <button onClick={backToHomPage}>Back To Hom Page</button> */}
     </div>

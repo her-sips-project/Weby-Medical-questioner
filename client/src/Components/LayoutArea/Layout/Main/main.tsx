@@ -1,15 +1,12 @@
 import React from "react";
-import Routing from "../../Routing/Routing";
 import "./main.css";
-import RoutingHeb from "../../RoutingHeb/RoutingHeb";
+// import RoutingHeb from "../../Routing/Routing";
 import { BrowserRouter } from "react-router-dom";
 
 const Main = () => {
   return (
     <div className="Main  container-fluid">
-      <BrowserRouter>
-        {/* <RoutingHeb /> */}
-      </BrowserRouter>
+      <BrowserRouter>{/* <RoutingHeb /> */}</BrowserRouter>
     </div>
   );
 };

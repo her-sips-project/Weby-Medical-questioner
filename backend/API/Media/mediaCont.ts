@@ -5,9 +5,9 @@ import fs from "fs";
 export const handleGetAllImgs = async (req: any, res: any) => {
   try {
     console.log("im in server handleGetAllImgs");
-    const response = await MediaModel.find({});
-    console.log(response);
-    res.json(response);
+    // const response = await MediaModel.find({});
+    console.log();
+    res.json({process:"OK"});
   } catch (error) {
     console.error(error);
   }

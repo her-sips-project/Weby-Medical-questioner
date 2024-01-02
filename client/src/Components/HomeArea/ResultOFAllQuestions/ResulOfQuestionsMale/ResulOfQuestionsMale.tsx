@@ -5,7 +5,7 @@ import "./ResulOfQuestionsMale.css";
 function ResulOfQuestionsMale(): JSX.Element {
     return (
         <div className="ResulOfQuestionsMale">
-             <h1>Sex:Male </h1>
+             {/* <h1>Sex:Male </h1> */}
             <Results  signsOfPain={{...store.getState().PainsAppState.signsOFPain}}/>
         </div>
     );

@@ -1,12 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap");
+:root {
+  --textColorBlue: #526085;
+  --btnLike: #56ae9e;
+  --btnDisLike: #fe5e37;
+  --backgroundColorLightBlue: #f3f3fb;
+  --blueTextHeader: #5976d2;
+  --btnRed: #f98264;
+  --btnGreen: #36b9a7;
+  --inputBorder: #bacbef;
+}
 
-.ResultsInHeb {
+.ResultsInEn {
   background-color: var(--backgroundColorLightBlue);
-  padding-right: 8%;
+  padding: 1rem;
+  margin: 0% 5rem;
+  max-width: 50%;
   .resultHead {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Poppins";
+    font-size: x-large;
     color: var(--blueTextHeader);
-    text-align: right !important;
+    text-align: left;
     display: inline;
     font-size: 30px;
     padding: 10px;
@@ -15,15 +28,17 @@
   ol {
     li {
       color: var(--textColorBlue);
-      padding: 1.8%;
+      padding: .2rem .5rem 1rem .5rem;
 
       .signType {
-        margin: 0px 20px;
+        margin: 0px 40px;
+        float: left;
       }
       .like,
       .disLike {
         font-size: 28px;
         margin-left: 50px;
+        float: right;
       }
       .like {
         color: var(--btnLike);
@@ -32,25 +47,22 @@
         color: var(--btnDisLike);
       }
       label:first-child {
-        float: left;
-        clear: left;
-        margin-right: 10px;
+        // float: left;
+        // clear: left;
+        margin-left: 20px;
       }
 
       label:last-child {
-        float: right;
+        // float: left;
       }
     }
   }
 }
-
-
-
-.ResultsInHeb {
-  // padding: 3rem;
+.ResultsInEn {
+  padding: 3rem;
   .numPage {
     display: flex;
-    justify-content: right;
+    justify-content: left;
     font-family: "Poppins";
     font-style: normal;
     .circle {
@@ -88,13 +100,5 @@
   }
 }
 
-:root {
-  --textColorBlue: #526085;
-  --btnLike: #56ae9e;
-  --btnDisLike: #fe5e37;
-  --backgroundColorLightBlue: #f3f3fb;
-  --blueTextHeader: #5976d2;
-  --btnRed: #f98264;
-  --btnGreen: #36b9a7;
-  --inputBorder: #bacbef;
-}
+// f2f6ff
+// 5781f1
