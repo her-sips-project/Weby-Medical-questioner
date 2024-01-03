@@ -59,7 +59,7 @@ function AddPatient() {
   }
 
   return (
-    <div className="AddPatient  container w-50"  >
+    <div className="AddPatient  container w-50">
       <form onSubmit={handleSubmit(submit)}>
         <label>First Name</label>
         <input type="text" autoFocus {...register("firstName")} />
@@ -98,42 +98,19 @@ function AddPatient() {
             <> </>
           )}
         </div>
-        <button className="sendBtn">Send my results</button>
+        <button
+          className="sendBtn"
+          onClick={() => {
+            navigate("/Thank");
+          }}
+        >
+          Send my results
+        </button>
         <button onClick={backToHomPage} className="cancelBtn">
           Cancel
         </button>
       </form>
       {/* <button onClick={backToHomPage}>Back To Hom Page</button> */}
-    </div>
-  );
-  return (
-    <div className="AddPatient Box">
-      <h1>Add Patient</h1>
-
-      <form onSubmit={handleSubmit(submit)}>
-        <label>First Name</label>
-        <input type="text" autoFocus {...register("firstName")} />
-        <br />
-        <label>Last Name</label>
-        <input type="text" autoFocus {...register("lastName")} />
-        <br />
-        <label>age</label>
-        <input type="number" {...register("age")} />
-        <br />
-        <label>Birth Date</label>
-        <input type="text" {...register("birthDate")} />
-        <br />
-        <label>Photo Of user</label>
-        <input type="file" accept="imag/*" {...register("photoOfUser")} />
-        <label>Country</label>
-        <input type="text" {...register("country")} />
-        <br />
-        <label>City</label>
-        <input type="text" {...register("city")} />
-        <br />
-        <button>Send</button>
-        <button>Cancel</button>
-      </form>
     </div>
   );
 }

@@ -9,17 +9,47 @@
   --inputBorder: #bacbef;
 }
 
-.thankPageDiv {
+.thankPageDivEn {
+    background-color: #f3f3fb;
   .mainDiv {
-    
-    .blueDiv {
-      background-color: var(--blueTextHeader) ;
-      svg{
-        width: 80px;
-        position: relative;
-        bottom: -40px;
-      }
-    }
     display: flex;
+    justify-content: space-around;
+    .userCard {
+        width: 40%;
+        box-shadow: 5px 10px 30px 1px #bacbef;
+        border-radius: 5px;
+        // border: 3px solid red ;
+        .blueDiv {
+            border-radius: 5px 5px 0px 0px;
+            background-color: var(--blueTextHeader);
+            svg {
+                width: 25%;
+                position: relative;
+                bottom: -50%;
+            }
+        }
+    }
+    .userInfo{
+        margin-top: 40px;
+        padding-left: 30%; ;
+        text-align: left;
+    }
+    .thankDiv{
+        box-shadow: 5px 10px 30px 1px #bacbef;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-size: large;
+       .numPage {
+        margin: 10px;
+        .number{
+            font-size: large;
+        }
+        .circle{
+            width: 40px;
+            height: 40px;
+        }}
+  }
+
   }
 }

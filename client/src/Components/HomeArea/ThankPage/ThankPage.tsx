@@ -1,9 +1,11 @@
 import React from "react";
 import Navbar from "../../Navbar/Navbar";
 import store from "../../../Redux/ReduxStore/Store";
-import  { ReactComponent as Male} from "../../../Assets/design/male.svg";
-import  { ReactComponent as Female} from "../../../Assets/design/female.svg";
-import "./thankPage.scss"
+import { ReactComponent as Male } from "../../../Assets/design/male.svg";
+import { ReactComponent as Female } from "../../../Assets/design/female.svg";
+import { ReactComponent as ThankSvg } from "../../../Assets/design/noun-thank-you-4559619 1.svg";
+
+import "./thankPage.scss";
 
 const ThankPage = () => {
   const getPatient = {
@@ -11,12 +13,12 @@ const ThankPage = () => {
   };
   const signsOfPain = { ...store.getState().PainsAppState.signsOFPain };
   return (
-    <div className="thankPageDiv thankPageDivEn   ">
+    <div className="thankPageDiv thankPageDivEn h-100  ">
       <Navbar />
-      <div className="mainDiv container w-100">
-        <div className="userCard box w-50">
-          <div className="blueDiv">
-            {getPatient.sex === 'male' ? <Male/> : <Female/>}
+      <div className="mainDiv container w-100 h-75">
+        <div className="userCard  h-100 ">
+          <div className="blueDiv w-100 h-50">
+            {getPatient.sex === "male" ? <Male /> : <Female />}
           </div>
           <div className="userInfo">
             <p>
@@ -36,18 +38,21 @@ const ThankPage = () => {
             </p>
           </div>
         </div>
-        <div className="thankDiv">
-          <h1>Thank you🙏</h1>
-          <p>Your test successfuly send to</p>
-          <p className="mailP">{getPatient.email}</p>
-          <div>
-            with results :
-            <div className="numPage">
-              <span className="currentNum number circle">
-                {signsOfPain.numberOfSignsOfPain || 0}
-              </span>
-              <span className="slash">/</span>
-              <span className="number circle">10</span>
+        <div className="thankDiv w-50 h-100">
+          <div className="thankMain">
+            <h1>Thank you <ThankSvg/></h1>
+            
+            <p>Your test successfuly send to</p><br/>
+            <p className="mailP">{getPatient.email}</p>
+            <div>
+              with results :
+              <div className="numPage">
+                <span className="currentNum number circle">
+                  {signsOfPain.numberOfSignsOfPain || 0}
+                </span>
+                <span className="slash number">/</span>
+                <span className="number circle">10</span>
+              </div>
             </div>
           </div>
         </div>
