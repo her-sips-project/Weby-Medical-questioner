@@ -1,0 +1,25 @@
+:root {
+  --textColorBlue: #526085;
+  --btnLike: #56ae9e;
+  --btnDisLike: #fe5e37;
+  --backgroundColorLightBlue: #f3f3fb;
+  --blueTextHeader: #5976d2;
+  --btnRed: #f98264;
+  --btnGreen: #36b9a7;
+  --inputBorder: #bacbef;
+}
+
+.thankPageDiv {
+  .mainDiv {
+    
+    .blueDiv {
+      background-color: var(--blueTextHeader) ;
+      svg{
+        width: 80px;
+        position: relative;
+        bottom: -40px;
+      }
+    }
+    display: flex;
+  }
+}

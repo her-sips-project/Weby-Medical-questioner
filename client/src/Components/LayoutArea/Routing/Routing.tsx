@@ -56,6 +56,8 @@ import QuestionTwoForMale from "../../HomeArea/SWALLOWINGPICTORIALQuestionsArea/
 import AddPatient from "../../PatientsArea/AddPatient/AddPatient";
 import ResultsPagesInHeb from "../../HomeArea/ResultOFAllQuestions/ResultsPages/ResultsPagesInHeb";
 import ResultsPagesInEn from "../../HomeArea/ResultOFAllQuestions/ResultsPages/ResultsPagesInEn";
+import ThankPageHeb from "../../HomeArea/ThankPage/ThankPageHeb";
+import ThankPage from "../../HomeArea/ThankPage/ThankPage";
 interface RoutingHebProps {
   language?: string;
 }
@@ -199,6 +201,9 @@ function RoutingHeb(langProps: RoutingHebProps): JSX.Element {
           element={<ResultsPagesInEn />}
         />
         <Route path="/Results" element={<Results />} />
+        <Route path="/ThankHeb" element={<ThankPageHeb />} />
+        <Route path="/Thank" element={<ThankPage />} />
+        
         <Route path="/AddPatient" element={<AddPatient />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="*" element={<MaleOrFemalePage />} />
