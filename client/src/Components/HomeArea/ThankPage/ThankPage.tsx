@@ -11,6 +11,7 @@ const ThankPage = () => {
   const getPatient = {
     ...store.getState().PatientsAppState.patientModelAppState,
   };
+  console.log(getPatient.email)
   const signsOfPain = { ...store.getState().PainsAppState.signsOFPain };
   return (
     <div className="thankPageDiv thankPageDivEn h-100  ">

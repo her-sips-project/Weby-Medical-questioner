@@ -13,36 +13,36 @@ function Layout(): JSX.Element {
   //  בכל קומפוננטה נכתוב שורה זו על מנת לקרוא מהרידקס
   // const signsOfPaint = {...store.getState().PatientsAppState};
 
-  useEffect(() => {
-    const getImage = async () => {
-      try {
-        const { data } = await axios.get(
-          "http://localhost:5001/api/v1/media/getAllImgs"
-        );
+  // useEffect(() => {
+  //   const getImage = async () => {
+  //     try {
+  //       const { data } = await axios.get(
+  //         "http://localhost:5001/api/v1/media/getAllImgs"
+  //       );
 
-        // JSON.parse(data)
-        // setAssets(JSON.parse(data));
-        setAssets(data);
-        store.dispatch(addMediaImgsModelAction(data));
+  //       // JSON.parse(data)
+  //       // setAssets(JSON.parse(data));
+  //       setAssets(data);
+  //       store.dispatch(addMediaImgsModelAction(data));
 
-        //   // המרת נתוני התמונה ל-base64
-        //   const base64 = btoa(
-        //     new Uint8Array(response.data).reduce(
-        //       (data, byte) => data + String.fromCharCode(byte),
-        //       ""
-        //     )
-        //   );
+  //       //   // המרת נתוני התמונה ל-base64
+  //       //   const base64 = btoa(
+  //       //     new Uint8Array(response.data).reduce(
+  //       //       (data, byte) => data + String.fromCharCode(byte),
+  //       //       ""
+  //       //     )
+  //       //   );
 
-        //   // שמירת התמונה בצורת base64 להצגה ב-<img>
-        //   const imageDataUrl = `data:image/jpeg;base64,${base64}`;
-        //   setImageSrc(imageDataUrl);
-      } catch (error) {
-        console.error("Error fetching image:", error);
-      }
-    };
+  //       //   // שמירת התמונה בצורת base64 להצגה ב-<img>
+  //       //   const imageDataUrl = `data:image/jpeg;base64,${base64}`;
+  //       //   setImageSrc(imageDataUrl);
+  //     } catch (error) {
+  //       console.error("Error fetching image:", error);
+  //     }
+  //   };
 
-    getImage();
-  }, []);
+  //   getImage();
+  // }, []);
 
   const [firstStateStep, setFirstStateStep] = useState<boolean>(false);
   const [getEnglishWayStateStep, setEnglishWayStateStep] =

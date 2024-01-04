@@ -5,6 +5,9 @@ import { PainsAppState } from "../../../Redux/SignsOfPainsAppState/signs-0f-pain
 const About = () => {
   const langStore = { ...store.getState().PainsAppState.signsOFPain };
   const [language, setLanguage] = useState(langStore.language);
+  const hoverStyle: React.CSSProperties = {
+    cursor: 'pointer',
+  };
   useEffect(() => {
     const unSubscribe = signsOfPainsStateService.subscribe(
       (painsState: PainsAppState): void => {
@@ -21,8 +24,8 @@ const About = () => {
       {language === "english" ? (
         //  באנגלית  About  החלק הזה 
         <div className="container">
-        <button
-          className="ButtonINMain Box"
+        <p style={{ fontFamily: "Poppins" , ...hoverStyle }}
+          className="ButtonINMain "
           title="
            To improve the existing variety of screening test to detect dysphagia we developed this online survey called SIPS – Swallowing Impairment Pictorial Survey. 
            The survey is image-based, and is easy and simple to use. 
@@ -32,15 +35,15 @@ const About = () => {
            "
         >
           {" "}
-          About{" "}
-        </button>
+          ABOUT{" "}
+        </p>
       </div>
       ) : (
         <>
           <aside className="he">
           <div>
-            <button
-              className="ButtonINMain Box"
+            <p style={{ fontFamily: "Poppins" , ...hoverStyle }}
+              className="ButtonINMain"
               title="
                SIPS –. 
                על מנת לשפר את האמצעים הקיימים לביצוע בדיקות סקר לאיתור הפרעות בליעה, פיתחנו את השאלון המקוון שמופיע באתר הזה שנקרא 
@@ -56,7 +59,7 @@ const About = () => {
             >
               {" "}
               אודות{" "}
-            </button>
+            </p>
           </div>
         </aside>
         </>

@@ -147,8 +147,8 @@ export async function sendMail(req: Request, res: Response) {
             </body>
           </html>`,
     };
-    let errorResponse: any;
-    let EmailSentResponse: any;
+    let errorResponse: any=undefined;
+    let EmailSentResponse: any = undefined;
     transporter.sendMail(
       mailOptions,
       function (error: any, info: { response: string }) {

@@ -5,7 +5,9 @@ import "./AddPatientInHeb.scss";
 import store from "../../../Redux/ReduxStore/Store";
 import axios from "axios";
 import { SyntheticEvent, useState } from "react";
-function AddPatient(): JSX.Element {
+import { addPatientsModelAction } from "../../../Redux/PatientsModelAppState/PatientsModel-AppState";
+
+function AddPatientInHeb(): JSX.Element {
   const navigate = useNavigate();
   const [isAgreeSips, setIsAgreeSips] = useState(false);
   const [isAgreeHimself, setIsAgreeHimself] = useState(false);
@@ -17,6 +19,9 @@ function AddPatient(): JSX.Element {
   };
   const { register, handleSubmit } = useForm<Patient>();
   async function submit(patient: Patient): Promise<void> {
+    console.log(patient)
+    store.dispatch(addPatientsModelAction(patient));
+   console.log(getPatient.firstName)
     patient.isAgreeSips = isAgreeSips;
     patient.isAgreeHimself = isAgreeHimself;
     try {
@@ -32,7 +37,7 @@ function AddPatient(): JSX.Element {
       console.error(error);
     }
 
-    // navigate("/");
+    navigate("/Thank");
   }
   function isChecked(args: SyntheticEvent) {
     if ((args.target as HTMLInputElement).name === "sips") {
@@ -98,4 +103,4 @@ function AddPatient(): JSX.Element {
   );
 }
 
-export default AddPatient;
+export default AddPatientInHeb;

@@ -6,6 +6,7 @@ import {
 } from "../../Redux/SignsOfPainsAppState/signs-0f-pains-app-state";
 import SignsOfPain from "./../../Models/SignsOfPainsModel/SignsOfPainModel/Signs-Of-Pain-Model";
 import store from "./../../Redux/ReduxStore/Store";
+import { PatientsModelAction, PatientsModelAppState } from "../../Redux/PatientsModelAppState/PatientsModel-AppState";
 class SignsOfPainsStateService {
   public getSignsOfPainsState(signsOfPains: SignsOfPain): void {
     if (signsOfPains != null) {
@@ -23,6 +24,9 @@ class SignsOfPainsStateService {
   //Hock...
   public subscribe(changeListener:(painsState:PainsAppState)=>void):Unsubscribe{
     return  store.subscribe(()=>changeListener(store.getState().PainsAppState));
+   }
+  public subscribeForPatient(changeListener:(painsState:PatientsModelAppState)=>void):Unsubscribe{
+    return  store.subscribe(()=>changeListener(store.getState().PatientsAppState));
    }
 }
 const signsOfPainsStateService = new SignsOfPainsStateService();

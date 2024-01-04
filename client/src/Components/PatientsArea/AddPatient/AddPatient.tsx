@@ -8,6 +8,7 @@ import Mail from "nodemailer/lib/mailer";
 import { SyntheticEvent, useState } from "react";
 import store from "../../../Redux/ReduxStore/Store";
 import axios from "axios";
+import { addPatientsModelAction } from "../../../Redux/PatientsModelAppState/PatientsModel-AppState";
 // const nodemailer = require("nodemailer");
 
 function AddPatient() {
@@ -22,6 +23,11 @@ function AddPatient() {
   };
   const { register, handleSubmit } = useForm<Patient>();
   async function submit(patient: Patient): Promise<void> {
+    console.log(patient)
+    store.dispatch(addPatientsModelAction(patient));
+    
+    patient.isAgreeSips = isAgreeSips;
+    patient.isAgreeHimself = isAgreeHimself;
     patient.isAgreeSips = isAgreeSips;
     patient.isAgreeHimself = isAgreeHimself;
     try {

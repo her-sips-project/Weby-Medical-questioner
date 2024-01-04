@@ -13,7 +13,7 @@ interface NavbarProps {
 }
 const Navbar: FC<NavbarProps> = ({ mode, language }) => {
   const [isClicked, setIsClicked] = useState(false);
-  const langStore = {...store.getState().PainsAppState.signsOFPain};
+  const langStore = { ...store.getState().PainsAppState.signsOFPain };
   const [lang, setLang] = useState(langStore.language);
   const signsOFPain = { ...store.getState().PainsAppState };
   const popUp = (lang: string) => {
@@ -23,7 +23,7 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
     setLang(lang);
     setIsClicked(!isClicked);
   };
-  
+
   useEffect(() => {
     if (!langStore.language) {
       setLang("english");
@@ -39,13 +39,13 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
   }, [lang]);
   return (
     <div className={`navDiv  ${!mode ? "" : "nightMode"}`}>
-      {(lang === "english") ? (
+      {lang === "english" ? (
         <ul className="navList">
           <li>
-            <OurTeem/>
+            <OurTeem />
           </li>
           <li>
-            <About/>
+            <About />
           </li>
           <li>
             <allFlags.US
@@ -54,13 +54,13 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
             />
           </li>
         </ul>
-      ):(
+      ) : (
         <ul className="navList">
           <li>
-            <OurTeem/>
+            <OurTeem />
           </li>
           <li>
-            <About/>
+            <About />
           </li>
           <li>
             <allFlags.IL
