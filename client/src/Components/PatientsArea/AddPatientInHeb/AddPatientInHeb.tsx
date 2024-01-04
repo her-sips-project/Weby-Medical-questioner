@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Patient from "../../../Models/PatientsModel/PatientModel/Patient-model";
+import "./AddPatientInHeb.scss";
 import store from "../../../Redux/ReduxStore/Store";
 import axios from "axios";
 import { SyntheticEvent, useState } from "react";
-import "./AddPatientInHeb.scss";
-
-function AddPatientInHeb(): JSX.Element {
+function AddPatient(): JSX.Element {
   const navigate = useNavigate();
   const [isAgreeSips, setIsAgreeSips] = useState(false);
   const [isAgreeHimself, setIsAgreeHimself] = useState(false);
@@ -20,14 +19,7 @@ function AddPatientInHeb(): JSX.Element {
   async function submit(patient: Patient): Promise<void> {
     patient.isAgreeSips = isAgreeSips;
     patient.isAgreeHimself = isAgreeHimself;
-    console.log("patient====================");
-    console.log(patient.email);
-
     try {
-      //   //  in addPatientInHeb change 25-41
-      //   //const patient:Patient={lastName:data1.lastName , firstName:data1.firstName,
-      //   //sex:data1.gender, email:data1.email, birthDate:data1.birthdate, country:data1.country}
-      //   //console.log(patient)
       const { data } = await axios.post(
         "http://localhost:5001/api/v1/email/send-mail",
         {
@@ -57,7 +49,7 @@ function AddPatientInHeb(): JSX.Element {
     navigate("/");
   };
   return (
-    <div className="AddPatientInHeb  container w-50">
+    <div className="AddPatientInHeb  container w-50" dir="rtl">
       <form onSubmit={handleSubmit(submit)}>
         <label>שם פרטי</label>
         <input type="text" autoFocus {...register("firstName")} />
@@ -72,17 +64,17 @@ function AddPatientInHeb(): JSX.Element {
         <input type="text" {...register("city")} />
         <div>
           <label className="chekbox1">
-            אני מסכים.ה לשלוח את התוצאות באנונימיות למטרות מחקר
             <input type="checkbox" name="sips" onChange={isChecked} />
+            אני מסכים.ה לשלוח את התוצאות באנונימיות למטרות מחקר
           </label>
           <label>
-            שלחו אליי את התוצאות במייל
             <input
               type="checkbox"
               id="sendToMe"
               name="changeCheckbox"
               onChange={isChecked}
             />
+            שלחו אליי את התוצאות במייל
           </label>
           {isAgreeHimself ? (
             <>
@@ -106,4 +98,4 @@ function AddPatientInHeb(): JSX.Element {
   );
 }
 
-export default AddPatientInHeb;
+export default AddPatient;

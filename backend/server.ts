@@ -6,8 +6,8 @@ import fs from "fs";
 const dotenv = require("dotenv");
 import path from 'path';
 import emailRoutes from "./API/emailRoutes";
-import { Gender } from "./API/Media/mediaSchema";
-import mediaRouter from "./API/Media/mediaRoutes"
+// import { Gender } from "./API/Media/mediaSchema";
+// import mediaRouter from "./API/Media/mediaRoutes"
 
 dotenv.config();
 const { mongo_URI } = process.env;
@@ -21,7 +21,7 @@ app.use(cors());
 console.log("hallo app")
 
 app.use("/api/v1/email", emailRoutes);
-app.use("/api/v1/media", mediaRouter);
+// app.use("/api/v1/media", mediaRouter);
 
 const server = app.listen(PORT, () => {
   console.log(`server is listening in port:${PORT} :)`);

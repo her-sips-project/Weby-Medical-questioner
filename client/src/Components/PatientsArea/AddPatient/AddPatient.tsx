@@ -7,45 +7,38 @@ import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 import { SyntheticEvent, useState } from "react";
 import store from "../../../Redux/ReduxStore/Store";
+import axios from "axios";
 // const nodemailer = require("nodemailer");
 
 function AddPatient() {
+  const navigate = useNavigate();
   const [isAgreeSips, setIsAgreeSips] = useState(false);
   const [isAgreeHimself, setIsAgreeHimself] = useState(false);
-  const backToHomPage = () => {
-    navigate("/");
-  };
-  const navigate = useNavigate();
-  const { register, handleSubmit } = useForm<Patient>();
   const getSignsOfPaintOject = {
     ...store.getState().PainsAppState.signsOFPain,
   };
   const getPatient = {
     ...store.getState().PatientsAppState.patientModelAppState,
   };
+  const { register, handleSubmit } = useForm<Patient>();
   async function submit(patient: Patient): Promise<void> {
-    const formData = new FormData();
-    formData.append("firstName", patient.firstName);
-    formData.append("lastName", patient.lastName);
-    formData.append("age", patient.age.toString());
-    formData.append("birthDate", patient.birthDate);
-    formData.append("photoOfUser", patient.photoOfUser[0]);
-    formData.append("country", patient.country);
-    formData.append("city", patient.city);
-    //navigate("/Main")//===========================================================??????
-    const USERNAME: string = "";
-    const API_KEY: string = "";
-    const client = new MessageClient({ username: USERNAME, apiKey: API_KEY });
-    const response = await client.sendMessage({
-      from: '"Sender Name" <from@example.net>',
-      to: "to@example.com",
-      subject: "Hello from node",
-      plain: "Hello world?",
-      html: "<strong>Hello world?</strong>",
-      headers: { "x-myheader": "test header" },
-    });
+    patient.isAgreeSips = isAgreeSips;
+    patient.isAgreeHimself = isAgreeHimself;
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5001/api/v1/email/send-mail",
+        {
+          result: store.getState().PainsAppState,
+          patient: patient,
+        }
+      );
+      console.error(data);
+    } catch (error) {
+      console.error(error);
+    }
+
+    navigate("/Thank");
   }
-  //===============================================================================
   function isChecked(args: SyntheticEvent) {
     if ((args.target as HTMLInputElement).name === "sips") {
       getPatient.isAgreeSips = true;
@@ -57,6 +50,9 @@ function AddPatient() {
       setIsAgreeHimself(true);
     }
   }
+  const backToHomPage = () => {
+    navigate("/");
+  };
 
   return (
     <div className="AddPatient  container w-50">

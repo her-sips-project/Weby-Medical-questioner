@@ -5,24 +5,21 @@ import store from "../../Redux/ReduxStore/Store";
 import { addPainAction } from "../../Redux/SignsOfPainsAppState/signs-0f-pains-app-state";
 import signsOfPainsStateService from "../../Services/SignsOfPainsAppStateServic/Signs-of-pains-app-state-servic";
 import "./navStyle.css";
-
+import About from "../LayoutArea/About/About";
+import OurTeem from "../LayoutArea/OurTeem/OurTeem";
 interface NavbarProps {
   mode?: string;
   language?: string;
 }
-
 const Navbar: FC<NavbarProps> = ({ mode, language }) => {
   const [isClicked, setIsClicked] = useState(false);
   const langStore = {...store.getState().PainsAppState.signsOFPain};
   const [lang, setLang] = useState(langStore.language);
-
   const signsOFPain = { ...store.getState().PainsAppState };
-
   const popUp = (lang: string) => {
     langStore.language = lang;
     store.dispatch(addPainAction(langStore));
     signsOfPainsStateService.getSignsOfPainsState(langStore);
-
     setLang(lang);
     setIsClicked(!isClicked);
   };
@@ -40,13 +37,16 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
       signsOfPainsStateService.getSignsOfPainsState(langStore);
     }
   }, [lang]);
-
   return (
     <div className={`navDiv  ${!mode ? "" : "nightMode"}`}>
-      {lang == "english" ? (
+      {(lang === "english") ? (
         <ul className="navList">
-          <li>TEAM</li>
-          <li>ABOUT</li>
+          <li>
+            <OurTeem/>
+          </li>
+          <li>
+            <About/>
+          </li>
           <li>
             <allFlags.US
               onClick={() => popUp("english")}
@@ -54,10 +54,14 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
             />
           </li>
         </ul>
-      ) : (
+      ):(
         <ul className="navList">
-          <li>הצוות שלנו</li>
-          <li>אודות</li>
+          <li>
+            <OurTeem/>
+          </li>
+          <li>
+            <About/>
+          </li>
           <li>
             <allFlags.IL
               onClick={() => popUp("hebrew")}
@@ -66,7 +70,6 @@ const Navbar: FC<NavbarProps> = ({ mode, language }) => {
           </li>
         </ul>
       )}
-
       {isClicked ? (
         <div className="popUpDiv">
           <allFlags.IL className="flag" onClick={() => popUp("hebrew")} />
