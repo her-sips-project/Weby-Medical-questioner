@@ -12,6 +12,10 @@ import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
 
 function QuestionNineWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+  
+  const customRoutes = "/QuestionNine";
+  useLanguageNavigationToEn(customRoutes);
+
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     "לפניך מוצגות שתי תמונות המייצגות חוויה של מידת ההנאה שלך מאכילה. יש לבחור בתמונה הנכונה עבורך";

@@ -11,9 +11,13 @@ import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
 import { useEffect, useState } from "react";
 import { PainsAppState } from "../../../../../../Redux/SignsOfPainsAppState/signs-0f-pains-app-state";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 function QuestionOneWithHebHelp(): JSX.Element {
   const [language, setLanguage] = useState<string | undefined>("");
   const signsOFPain = { ...store.getState().PainsAppState };
+
+  const customRoutes = "/QuestionOne";
+  useLanguageNavigationToEn(customRoutes);
 
   useEffect(() => {
     const unSubscribe = signsOfPainsStateService.subscribe(

@@ -11,9 +11,16 @@ import store from "../../../../../../Redux/ReduxStore/Store";
 import Navbar from "../../../../../Navbar/Navbar";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 
 function QuestionSevenForMaleWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+  
+
+  const customRoutes = "/QuestionSevenForMale";
+  useLanguageNavigationToEn(customRoutes);
+
+  
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     " לפניך מוצגות שתי תמונות המייצגות חוויה לגבי אכילה בחברת אחרים יש לבחור בתמונה הנכונה עבורך. ";

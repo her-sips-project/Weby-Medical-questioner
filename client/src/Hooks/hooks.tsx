@@ -27,6 +27,29 @@ const useLanguageNavigationToHeb = (customRoute: string) => {
 
   return {}; 
 };
+export const useLanguageNavigationToEn = (customRoute: string) => {
+    const navigate = useNavigate()
+  const [language, setLanguage] = useState<string | undefined>("");
+  
+  useEffect(() => {
+    const unSubscribe = signsOfPainsStateService.subscribe(
+      (painsState: PainsAppState): void => {
+        const { signsOFPain, arrayOfImages } = painsState;
+
+        if (signsOFPain?.language === "english") {
+          console.log("change to english");
+          navigate(customRoute);
+        }
+      }
+    );
+
+    return () => {
+      unSubscribe();
+    };
+  }, [customRoute]);
+
+  return {}; 
+};
 
 
 export default useLanguageNavigationToHeb;

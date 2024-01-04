@@ -9,8 +9,14 @@ import signsOfPainsStateService from "../../../../../../Services/SignsOfPainsApp
 import Navbar from "../../../../../Navbar/Navbar";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 function QuestionSixForMaleWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+
+  const customRoutes = "/QuestionSixForMale";
+  useLanguageNavigationToEn(customRoutes);
+
+  
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     "לפניך מוצגות שתי תמונות לגבי אירועים של מחנק שמתרחשים בזמן האכילה. יש לבחור בתמונה הנכונה עבורך";

@@ -9,9 +9,14 @@ import signsOfPainsStateService from "../../../../../../Services/SignsOfPainsApp
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
 import Navbar from "../../../../../Navbar/Navbar";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 
 function QuestionTwoWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+
+  const customRoutes = "/QuestionTow";
+  useLanguageNavigationToEn(customRoutes);
+
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     "לפניך מוצגות שתי תמונות המייצגות חוויה שקשורה ליכולת שלך לאכול מזון מוצק.  יש לבחור בתמונה הנכונה עבורך. ";

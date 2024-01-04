@@ -14,7 +14,12 @@ import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
 
 function QuestionSixWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+
+  const customRoutes = "/QuestionSix";
+  useLanguageNavigationToEn(customRoutes);
+
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
+
   const title =
     "לפניך מוצגות שתי תמונות לגבי אירועים של מחנק שמתרחשים בזמן האכילה. יש לבחור בתמונה הנכונה עבורך";
   function wellHappenClickHandlerOnQuestionSixWithHebHelp(): void {

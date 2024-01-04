@@ -9,9 +9,14 @@ import signsOfPainsStateService from "../../../../../../Services/SignsOfPainsApp
 import Navbar from "../../../../../Navbar/Navbar";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 
 function QuestionEightWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+
+  const customRoutes = "/QuestionEight";
+  useLanguageNavigationToEn(customRoutes);
+
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     "לפניך מוצגות שתי תמונות המייצגות חוויה של כאבים בזמן בליעה. יש לבחור בתמונה הנכונה עבורך";

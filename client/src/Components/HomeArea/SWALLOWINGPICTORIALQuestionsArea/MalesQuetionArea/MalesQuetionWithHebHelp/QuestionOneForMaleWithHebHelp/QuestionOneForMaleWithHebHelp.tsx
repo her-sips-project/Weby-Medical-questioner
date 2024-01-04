@@ -9,9 +9,15 @@ import signsOfPainsStateService from "../../../../../../Services/SignsOfPainsApp
 import Navbar from "../../../../../Navbar/Navbar";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 function QuestionOneForMaleWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+
+  const customRoutes = "/QuestionOneForMale";
+  useLanguageNavigationToEn(customRoutes);
+
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
+
   const title =
     "לפניך מוצגות שתי תמונות המייצגות חוויה שקשורה ליכולת שלך לבלוע נוזלים יש לבחור בתמונה הנכונה עבורך. ";
   function wellHappenClickHandlerOnQuestionOneForMaleWithHebHelpImage(): void {

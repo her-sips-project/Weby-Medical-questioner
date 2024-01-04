@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../Navbar/Navbar";
 import store from "../../../Redux/ReduxStore/Store";
 import { ReactComponent as Male } from "../../../Assets/design/male.svg";
@@ -6,12 +6,26 @@ import { ReactComponent as Female } from "../../../Assets/design/female.svg";
 import { ReactComponent as ThankSvg } from "../../../Assets/design/noun-thank-you-4559619 1.svg";
 
 import "./thankPage.scss";
+import signsOfPainsStateService from "../../../Services/SignsOfPainsAppStateServic/Signs-of-pains-app-state-servic";
+import { PatientsModelAppState } from "../../../Redux/PatientsModelAppState/PatientsModel-AppState";
 
 const ThankPage = () => {
-  const getPatient = {
+  let getPatient = {
     ...store.getState().PatientsAppState.patientModelAppState,
   };
-  console.log(getPatient.email)
+  useEffect(() => {
+    const unSubscribe = signsOfPainsStateService.subscribeForPatient(
+      (patientState: PatientsModelAppState): void => {
+        getPatient.sex = patientState.patientModelAppState?.sex;
+        getPatient.firstName = patientState.patientModelAppState?.firstName;
+        getPatient.lastName = patientState.patientModelAppState?.lastName;
+        getPatient.age = patientState.patientModelAppState?.age;
+        getPatient.country = patientState.patientModelAppState?.country;
+        getPatient.email = patientState.patientModelAppState?.email;
+      }
+    );
+  });
+  console.log(getPatient.email);
   const signsOfPain = { ...store.getState().PainsAppState.signsOFPain };
   return (
     <div className="thankPageDiv thankPageDivEn h-100  ">
@@ -41,9 +55,12 @@ const ThankPage = () => {
         </div>
         <div className="thankDiv w-50 h-100">
           <div className="thankMain">
-            <h1>Thank you <ThankSvg/></h1>
-            
-            <p>Your test successfuly send to</p><br/>
+            <h1>
+              Thank you <ThankSvg />
+            </h1>
+
+            <p>Your test successfuly send to</p>
+            <br />
             <p className="mailP">{getPatient.email}</p>
             <div>
               with results :

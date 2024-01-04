@@ -7,7 +7,9 @@ import {
 import SignsOfPain from "./../../Models/SignsOfPainsModel/SignsOfPainModel/Signs-Of-Pain-Model";
 import store from "./../../Redux/ReduxStore/Store";
 import { PatientsModelAction, PatientsModelAppState } from "../../Redux/PatientsModelAppState/PatientsModel-AppState";
-class SignsOfPainsStateService {
+
+
+export class SignsOfPainsStateService {
   public getSignsOfPainsState(signsOfPains: SignsOfPain): void {
     if (signsOfPains != null) {
       store.dispatch(addPainAction(signsOfPains));

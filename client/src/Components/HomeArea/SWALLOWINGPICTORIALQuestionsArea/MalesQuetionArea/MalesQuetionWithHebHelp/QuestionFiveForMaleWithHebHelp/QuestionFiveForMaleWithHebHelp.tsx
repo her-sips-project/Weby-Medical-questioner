@@ -11,9 +11,15 @@ import store from "../../../../../../Redux/ReduxStore/Store";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
 import Navbar from "../../../../../Navbar/Navbar";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 
 function QuestionFiveForMaleWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
+
+  const customRoutes = "/QuestionFiveForMale";
+  useLanguageNavigationToEn(customRoutes);
+
+  
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     " לפניך מוצגות שתי תמונות לגבי משקל הגוף שלך. יש לבחור בתמונה הנכונה עבורך ";

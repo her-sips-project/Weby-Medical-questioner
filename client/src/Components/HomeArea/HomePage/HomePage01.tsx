@@ -26,18 +26,18 @@ const HomePage01 = () => {
         }
       }
     );
-    const allImages = async () => {
-      const { data } = await axios.get(
-        "http://localhost:5001/api/v1/media/getAllImgs"
-      );
-      return data;
-    };
-    const starter = async () => {
-      signsOFPain.arrayOfImages = await allImages();
-      signsOFPain.signsOFPain = { ...signsOFPain.signsOFPain };
-      signsOfPainsStateService.getArrayOfImagesPainsState(signsOFPain as any);
-    };
-    starter();
+    // const allImages = async () => {
+    //   const { data } = await axios.get(
+    //     "http://localhost:5001/api/v1/media/getAllImgs"
+    //   );
+    //   return data;
+    // };
+    // const starter = async () => {
+    //   signsOFPain.arrayOfImages = await allImages();
+    //   signsOFPain.signsOFPain = { ...signsOFPain.signsOFPain };
+    //   signsOfPainsStateService.getArrayOfImagesPainsState(signsOFPain as any);
+    // };
+    // starter();
   }, []);
 
   function letsStartedInEnglish() {
