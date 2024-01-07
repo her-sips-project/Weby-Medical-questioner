@@ -1,37 +1,58 @@
 import express, { Request, Response } from "express";
-import calculateAge from "../assets/CalculateAge";
-
+import calculateAge from "../assets/calculateAge";
+import isEmailValid from "../assets/EmailValidator";
+const nodemailer = require("nodemailer");
 export async function sendMail(req: Request, res: Response) {
   try {
     const mangerEmail: any = process.env.EMAIL;
-    const { result, patient, agreementSend } = req.body;
-    const age = calculateAge(patient.birthDate);
-    if ({ result, patient }) {
+    // const { result, patient, agreementSend } = req.body;
+    const { result, patient } = req.body;
 
-      const nodemailer = require("nodemailer");
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL,
-          pass: process.env.PASSWORD,
-        },
-      });
-      const emailAddresses = [String];
+    let age = calculateAge(patient.birthDate);
+    if (age > 120 || age <= 0) {
 
-      if (patient.email != null)
-        emailAddresses.push(patient.email)
+      return res.send({ status: false, error: "Incorrect age" });
+    }
+    console.log("send")
 
-      if (agreementSend)
-        emailAddresses.push(mangerEmail)
+    //This means there is no  email in variable patient.email
+    let patient_email: string;
+    let isEmailIsValid: boolean = false;
 
-      console.log("first")
-      const mailOptions = {
-        from: 'SIPS',
-        to: emailAddresses,
-        subject: `${patient.firstName} , ${patient.lastName} - תוצאות`,
-        text: `  ${JSON.stringify(patient)}`,
-        html:
-          ` <html  lang="he" >
+
+    //Validating the user email
+    const { valid, reason, validators } = await isEmailValid(patient.email);
+    if (valid) {
+      patient_email = patient.email;
+      isEmailIsValid = true;
+    }
+    else {
+      return res.send({ status: false, error: "InValid email" });
+    }
+
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.SIPS_STUDY_EMAIL,
+        pass: process.env.PASSWORD,
+      },
+    });
+
+    const emailAddresses: string[] = [];
+
+    if (patient.email != null)
+      emailAddresses.push(patient.email)
+    if (patient.isAgreeSips)
+      emailAddresses.push(mangerEmail)
+
+    const mailOptions = {
+      from: 'SIPS',
+      bcc: emailAddresses,
+      subject: `${patient.firstName} , ${patient.lastName} - תוצאות`,
+      text: `  ${JSON.stringify(patient)}`,
+      html:
+        ` <html  lang="he" >
         <head>
           <style>
           *{
@@ -130,25 +151,19 @@ ${JSON.parse(result.signsOFPain.numberOfSignsOfPain)} /10
       </html>`
 
 
-        ,
-      };
+      ,
+    };
 
-      transporter.sendMail(mailOptions, function (error: any, info: { response: string; }) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Email sent: " + info.response);
-        }
-      });
+    transporter.sendMail(mailOptions, function (error: any, info: { response: string; }) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent: " + info.response);
+      }
+    });
 
-      res.send({ status: true });
+    res.send({ status: true });
 
-
-    }
-
-    else {
-      res.send({ status: false });
-    }
 
   } catch (error) {
     console.error(error);

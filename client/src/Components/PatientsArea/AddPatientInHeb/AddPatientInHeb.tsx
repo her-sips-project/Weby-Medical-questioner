@@ -9,19 +9,22 @@ import { useNavigate } from 'react-router-dom';
 function AddPatientInHeb() {
     const getSignsOfPaintOject={...store.getState().PainsAppState.signsOFPain}
     const { control, handleSubmit } =  useForm();
-
+    // const [submitOn, setSubmitOn]
     async function onSubmit(data1:any):Promise<void> {
         try {  
           if(data1.gender == null)
               data1.gender='male'
         const patient:Patient={lastName:data1.lastName , firstName:data1.firstName,
-        sex:data1.gender, email:data1.email, birthDate:data1.birthdate, country:data1.country}
+        sex:data1.gender, email:data1.email, birthDate:data1.birthdate, country:data1.country
+      
+      }
 
         const { data } = await axios.post(`http://localhost:5002/api/v1/email/send-mail`,
          {  
             result: store.getState().PainsAppState,
             patient: patient,
-            agreementSend:data1.agreementSend
+            patient:isAgreeSips
+            // agreementSend:data1.agreementSend
         });
             if(!data.status)
                 console.error("mail is not send");
@@ -128,6 +131,7 @@ function AddPatientInHeb() {
           render={({ field }) => <input type="checkbox" id="agreementSend" {...field} />}
         />
       </div>
+
       <button type="submit">Submit</button>
       <button type="button" onClick={handleCancel}>Cancel</button>
     </form>
@@ -135,5 +139,3 @@ function AddPatientInHeb() {
 };
 
 export default AddPatientInHeb;
-
-
