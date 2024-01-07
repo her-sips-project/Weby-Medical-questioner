@@ -1,22 +1,28 @@
-
-.questionBody{
-    background-color: #f1f4fc;
+.questionBody {
+  background-color: #f1f4fc;
 }
 
-.MaleOrFemalePageWithHeb  {
-    background-color: #f1f4fc;
+.MaleOrFemalePageWithHeb {
+  background-color: #f1f4fc;
 }
 
-.mainImgs{
-    display: flex; 
+.mainImgs {
+  display: flex;
+  img {
+    max-height: 100%;
+    object-fit: cover;
+  }
 }
 
-
-@media screen and (max-width: 480px ) {
-    .mainImgs{
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-    }
+@media screen and (max-width: 480px) {
+  .mainImgs {
+    display: flex;
+    flex-direction: column;
     
+    align-items: center;
+    max-height: 100%;
+    img {
+      min-height: 50%;
+    }
+  }
 }

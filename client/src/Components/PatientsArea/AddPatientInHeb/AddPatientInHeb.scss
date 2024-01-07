@@ -53,6 +53,16 @@
   }
 }
 
+
+@media screen and (max-width: 580px) {
+  .AddPatient {
+    padding: 1rem;
+    min-width: 100%;
+    min-height: 100vh;
+  }
+}
+
+
 /* 
 .AddPatientInHeb {
     padding:0;

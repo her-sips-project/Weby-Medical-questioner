@@ -29,7 +29,9 @@
   ol {
     li {
       color: var(--textColorBlue);
-      padding: .2rem .5rem 1rem .5rem;
+      padding: 0.2rem 0.5rem 1rem 0.5rem;
+      display: flex;
+      justify-content: space-between;
 
       .signType {
         margin: 0px 40px;
@@ -38,7 +40,7 @@
       .like,
       .disLike {
         font-size: 28px;
-        margin-left: 50px;
+        // margin-left: 50px;
         float: right;
       }
       .like {
@@ -97,6 +99,24 @@
     .slash {
       font-size: 10px;
       font-weight: 300;
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .resultDiv {
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    ol {
+      padding: 0;
+      overflow-x: visible;
+      li {
+        .signType {
+          margin: 5px;
+          padding: 13px;
+        }
+      }
     }
   }
 }

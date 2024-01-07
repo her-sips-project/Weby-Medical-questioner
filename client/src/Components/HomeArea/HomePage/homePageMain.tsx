@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import "./HomePageCopy.css";
 import { useNavigate } from "react-router-dom";
+import "./HomePage01.scss";
 import Navbar from "../../Navbar/Navbar";
 import { SlArrowRight } from "react-icons/sl";
 interface HomePageCopyHebProps{
@@ -29,9 +30,9 @@ function HomePageMain(langProp:HomePageCopyHebProps): JSX.Element {
                 </h1>
                 <p className="description container">
                   On this website you can find a survey to detect swallowing
-                  difficulties. The survey contains 10 items. Each item displays
+                  difficulties.<br/> The survey contains 10 items. Each item displays
                   two images that represent experiences related to your ability to
-                  swallow. Choose the image that applies to you.
+                  swallow.<br/> Choose the image that applies to you.
                 </p>
                 <button onClick={getEnglishWayClickHandler}>
                   start <SlArrowRight className="iconStart" />
@@ -58,37 +59,7 @@ function HomePageMain(langProp:HomePageCopyHebProps): JSX.Element {
           )}
         </>
       );
-  return (
-    <div className="HomePageMain">
-      {language =="English" ? (<div className="B">
-          <p className="P2 Box">
-            On this website you can find a survey to detect swallowing
-            difficulties. The survey contains 10 items. Each item displays two
-            images that represent experiences related to your ability to
-            swallow. Choose the image that applies to you.
-          </p>
-          <button
-            className="ButtonINMain Box"
-            onClick={getEnglishWayClickHandler}
-          >
-            {" "}
-            START{" "}
-          </button>
-        </div>):(
-           <div className="A">
-           <p className="p1 Box ">
-             באתר זה ניתן למצוא שאלון לאיתור הפרעות בליעה. השאלון מכיל 10 שאלות.
-             בכל שאלה מוצגות שתי תמונות המייצגות חוויה שקשורה ליכולת הבליעה שלך.
-             יש לבחור בתמונה הנכונה עבורך
-           </p>
-           <button className="ButtonINMain Box" onClick={getHebeWayClickHandler}>
-            {" "}
-            התחלה{" "}
-          </button>
-         </div>
-        )}
-    </div>
-  );
+
 }
 
 export default HomePageMain;

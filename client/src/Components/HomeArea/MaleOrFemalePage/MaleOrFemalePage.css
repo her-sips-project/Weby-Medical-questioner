@@ -4,15 +4,10 @@
     padding:0;
     box-sizing:border-box;
     height:100%;
-    /* background-color: 1px solid black; */
     background-color: white;
     flex-wrap:wrap;
     display: flex;
-    /* justify-content:space-around; */
-    /* justify-content:space-between; */
-    /* justify-content:space-evenly; */
-    /* align-items: flex-end; */
-    /* align-items:center; */
+
 
 }
 .MaleOrFemalePage > .svgClass{
@@ -37,24 +32,6 @@
     width:700px; 
 
 }
-
-/* .MaleOrFemale{
-    display: flex;
-  
-} */
-
- /* .MaleOrFemale div {
-     flex-basis:1;
-     flex:1;
-     justify-content:space-between;
-     justify-content:flex-end;
-    
-}  */
-/* .MaleOrFemale div:nth-child(2) {
-   flex:3;
-   margin-left: auto;
-   order: 3;
-}  */
 
 
 

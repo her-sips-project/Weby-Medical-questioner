@@ -4,7 +4,8 @@
   background-color: var(--backgroundColorLightBlue);
   padding-right: 8%;
   .resultHead {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     color: var(--blueTextHeader);
     text-align: right !important;
     display: inline;
@@ -43,8 +44,6 @@
     }
   }
 }
-
-
 
 .ResultsInHeb {
   // padding: 3rem;
@@ -97,4 +96,58 @@
   --btnRed: #f98264;
   --btnGreen: #36b9a7;
   --inputBorder: #bacbef;
+}
+
+@media screen and (max-width: 580px) {
+    .ResultsInHeb {
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    min-width: 100%;
+    ol {
+      padding: 0;
+      overflow-x: visible;
+      direction: rtl;
+      li {
+        display:flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        text-align: right;
+        .signType {
+          margin: 5px;
+          padding: 13px;
+        }
+      }
+    }
+    ol {
+      li {
+        color: var(--textColorBlue);
+        padding: 1.8%;
+
+        .signType {
+          margin: 0px 20px;
+        }
+        .like,
+        .disLike {
+          font-size: 28px;
+          margin-left: 50px;
+        }
+        .like {
+          color: var(--btnLike);
+        }
+        .disLike {
+          color: var(--btnDisLike);
+        }
+        label:first-child {
+          float: left;
+          clear: left;
+          margin-right: 10px;
+        }
+
+        label:last-child {
+          float: right;
+        }
+      }
+    }
+  }
 }

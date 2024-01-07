@@ -37,5 +37,18 @@
     background-color:var(--backgroundColorLightBlue) ;
     display: flex;
     justify-content:space-between;
+    
+    button {
+      color: white;
+      border-radius: 3px;
+      border: none;
+      border: none;
+      padding: 5px 26px;
+      margin-left: 10px;
+      margin-bottom: 3rem;
+      box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.099);
+      background-color: var(--btnGreen);
+    }
   }
+  
   

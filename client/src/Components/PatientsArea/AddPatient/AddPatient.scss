@@ -1,55 +1,63 @@
 :root {
-    --textColorBlue: #526085;
-    --btnLike: #56ae9e;
-    --btnDisLike: #fe5e37;
-    --backgroundColorLightBlue: #f3f3fb;
-    --blueTextHeader: #5976d2;
-    --btnRed: #f98264;
-    --btnGreen: #36b9a7;
-    --inputBorder: #bacbef;
+  --textColorBlue: #526085;
+  --btnLike: #56ae9e;
+  --btnDisLike: #fe5e37;
+  --backgroundColorLightBlue: #f3f3fb;
+  --blueTextHeader: #5976d2;
+  --btnRed: #f98264;
+  --btnGreen: #36b9a7;
+  --inputBorder: #bacbef;
+}
+
+.AddPatient {
+  padding: 5%;
+  text-align: left;
+  background-color: var(--backgroundColorLightBlue);
+
+  label {
+    font-size: 22px;
+    display: block;
+    color: var(--textColorBlue);
   }
-  
-  .AddPatient {
-    padding: 5%;
-    text-align: left;
-    background-color: var(--backgroundColorLightBlue);
-    
+  form {
     label {
-      font-size: 22px;
-      display: block;
-      color: var(--textColorBlue);
+      font-size: medium;
+      padding: 5px 0px;
     }
-    form {
-      label {
-        font-size: medium;
-        padding: 5px 0px;
-      }
-      input {
-        width: 75%;
-        height: 40px;
-        border: 2px solid var(--inputBorder);
-        border-radius: 3px;
-        margin-bottom: 10px;
-      }
-      input[type="checkbox"] {
-          margin-bottom: 0px;
-        width: fit-content;
-      }
-      button {
-        color: white;
-        border-radius: 3px;
-        border: none;
-          border: none;
-          padding: 5px 26px;
-          margin-left: 10px;
-          box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.099);
-      }
-      .sendBtn {
-          background-color: var(--btnGreen);
-      }
-      .cancelBtn {
-          background-color: var(--btnRed);
-      }
+    input {
+      width: 75%;
+      height: 40px;
+      border: 2px solid var(--inputBorder);
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    input[type="checkbox"] {
+      margin-bottom: 0px;
+      width: fit-content;
+    }
+    button {
+      color: white;
+      border-radius: 3px;
+      border: none;
+      border: none;
+      padding: 5px 26px;
+      margin-left: 10px;
+      box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.099);
+    }
+    .sendBtn {
+      background-color: var(--btnGreen);
+    }
+    .cancelBtn {
+      background-color: var(--btnRed);
     }
   }
-  
+}
+
+@media screen and (max-width: 580px) {
+  .AddPatient {
+    // margin: 1rem;
+    padding: 1rem;
+    min-width: 100%;
+    min-height: 100vh;
+  }
+}
