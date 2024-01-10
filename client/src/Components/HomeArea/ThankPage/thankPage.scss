@@ -9,47 +9,142 @@
   --inputBorder: #bacbef;
 }
 
-.thankPageDivEn {
-    background-color: #f3f3fb;
+.thankPageDivEn,
+.thankPageDivHeb {
+  background-color: #f3f3fb;
   .mainDiv {
     display: flex;
     justify-content: space-around;
     .userCard {
-        width: 40%;
+      width: 50%;
+      box-shadow: 5px 10px 30px 1px #bacbef;
+      border-radius: 5px;
+      margin: 1rem;
+      // border: 3px solid red ;
+      .blueDiv {
+        border-radius: 5px 5px 0px 0px;
+        background-color: var(--blueTextHeader);
+        svg {
+          width: 25%;
+          position: relative;
+          bottom: -50%;
+        }
+      }
+    }
+    .userInfo {
+      margin-top: 40px;
+      padding-left: 30%;
+      text-align: left;
+    }
+    .thankDiv {
+      box-shadow: 5px 10px 30px 1px #bacbef;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      font-size: large;
+      margin: 1rem;
+      .numPage {
+        margin: 10px;
+        .number {
+          font-size: large;
+        }
+        .circle {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+
+#root > div > div.mainDiv.container > div > div.userInfo {
+  text-align: right;
+  padding-right: 20%;
+}
+
+@media only screen and (max-width: 580px) {
+  .thankPageDivEn,
+  .thankPageDivHeb {
+    background-color: #f3f3fb;
+    width: 100vw;
+    height: 100vh;
+    .mainDiv {
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
+      padding: 0 auto;
+
+      .userCard {
+        width: 80% !important;
         box-shadow: 5px 10px 30px 1px #bacbef;
         border-radius: 5px;
-        // border: 3px solid red ;
+        margin: 1rem;
+        height: 80%;
+        .thankDiv {
+          height: max-content;
+          padding: 1rem !important;
+        }
         .blueDiv {
-            border-radius: 5px 5px 0px 0px;
-            background-color: var(--blueTextHeader);
-            svg {
-                width: 25%;
-                position: relative;
-                bottom: -50%;
-            }
+          color: white;
+          height: 35vh !important;
+          padding: 2rem;
+          border-radius: 5px 5px 0px 0px;
+          background-color: var(--blueTextHeader);
+          // position: relative;
+          .personSvg {
+            margin: 10px;
+            position: relative;
+            width: 25%;
+            z-index: -10;
+            color: white;
+            bottom: 60px !important;
+          }
         }
-    }
-    .userInfo{
-        margin-top: 40px;
-        padding-left: 30%; ;
-        text-align: left;
-    }
-    .thankDiv{
-        box-shadow: 5px 10px 30px 1px #bacbef;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        font-size: large;
-       .numPage {
-        margin: 10px;
-        .number{
-            font-size: large;
+        .userInfo {
+          min-height: max-content;
+          height: 30vh !important;
         }
-        .circle{
-            width: 40px;
-            height: 40px;
-        }}
+      }
+    }
   }
-
+  .numPage {
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins";
+    font-style: normal;
+    .circle {
+      padding: 4px !important;
+      box-shadow: 0px 6px 20px -2px rgba(41, 41, 41, 0.2);
+      width: 30px;
+      height: 30px;
+      color: white;
+      border-radius: 50%;
+      border: 1px solid var(--btnGreen);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: var(--btnGreen);
+    }
+    .currentNum {
+      color: var(--btnDisLike);
+      border: 1px solid var(--btnDisLike);
+      background-color: white;
+    }
+    span {
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #5781f1;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .slash {
+      color: white !important;
+      font-size: 20px;
+      font-weight: 100;
+    }
   }
 }
