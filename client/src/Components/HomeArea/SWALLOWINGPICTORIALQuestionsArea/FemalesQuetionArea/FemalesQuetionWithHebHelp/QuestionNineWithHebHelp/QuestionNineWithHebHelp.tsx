@@ -9,10 +9,11 @@ import signsOfPainsStateService from "../../../../../../Services/SignsOfPainsApp
 import Navbar from "../../../../../Navbar/Navbar";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 
 function QuestionNineWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
-  
+
   const customRoutes = "/QuestionNine";
   useLanguageNavigationToEn(customRoutes);
 
@@ -59,7 +60,13 @@ function QuestionNineWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.EnjoyingMeals !== "undefined"
+                  ? signsOfPaint.EnjoyingMeals
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionNineWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionNineWithHebHelpForFemaleImage
@@ -68,7 +75,13 @@ function QuestionNineWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.EnjoyingMeals !== "undefined"
+                  ? signsOfPaint.EnjoyingMeals
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionNineWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionNineWithHebHelpForFemaleImage

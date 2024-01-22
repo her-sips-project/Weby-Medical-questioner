@@ -11,6 +11,7 @@ import PossibilityOfNextTothetweenQuestions from "./../../../../PossibilityOfNex
 import Navbar from "../../../../../Navbar/Navbar";
 import QuestNum from "../../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
+import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 
 function QuestionSixWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
@@ -62,7 +63,13 @@ function QuestionSixWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.ChokingDuringMeals !== "undefined"
+                  ? signsOfPaint.ChokingDuringMeals
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionSixWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionSixWithHebHelpForFemaleImage
@@ -71,7 +78,13 @@ function QuestionSixWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.ChokingDuringMeals !== "undefined"
+                  ? signsOfPaint.ChokingDuringMeals
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionSixWithHebHelp2}
               onClick={wellHappenClickHandlerOnQuestionSixWithHebHelp}
             />

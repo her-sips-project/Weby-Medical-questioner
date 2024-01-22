@@ -58,7 +58,13 @@ function QuestionOneForMaleWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingLiquids !== "undefined"
+                  ? signsOfPaint.difficultySwallowingLiquids
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionOneForMaleWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionOneForMaleWithHebHelpImage
@@ -67,7 +73,13 @@ function QuestionOneForMaleWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingLiquids !== "undefined"
+                  ? signsOfPaint.difficultySwallowingLiquids
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionOneForMaleWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionOneForMaleWithHebHelpImage

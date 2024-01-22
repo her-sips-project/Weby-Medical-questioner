@@ -16,7 +16,6 @@ function QuestionSixForMaleWithHebHelp(): JSX.Element {
   const customRoutes = "/QuestionSixForMale";
   useLanguageNavigationToEn(customRoutes);
 
-  
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     "לפניך מוצגות שתי תמונות לגבי אירועים של מחנק שמתרחשים בזמן האכילה. יש לבחור בתמונה הנכונה עבורך";
@@ -60,7 +59,13 @@ function QuestionSixForMaleWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3 ">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.ChokingDuringMeals !== "undefined"
+                  ? signsOfPaint.ChokingDuringMeals
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionSixForMaleWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionSixForMaleWithHebHelpImage
@@ -69,7 +74,13 @@ function QuestionSixForMaleWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  ">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.ChokingDuringMeals !== "undefined"
+                  ? signsOfPaint.ChokingDuringMeals
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionSixForMaleWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionSixForMaleWithHebHelpImage

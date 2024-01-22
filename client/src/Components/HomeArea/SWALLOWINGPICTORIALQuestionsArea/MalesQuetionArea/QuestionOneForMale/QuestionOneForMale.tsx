@@ -51,20 +51,32 @@ function QuestionOneForMale(): JSX.Element {
   }
   return (
     <div className="questionBody  h-100 ">
-      <Navbar/>
+      <Navbar />
       <QuestNum currentQuestNum={1} />
       <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingLiquids !== "undefined"
+                  ? signsOfPaint.difficultySwallowingLiquids
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionOneForMale1}
               onClick={badlyHappenClickHandlerOnQuestionOneForMaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingLiquids !== "undefined"
+                  ? signsOfPaint.difficultySwallowingLiquids
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionOneForMale2}
               onClick={wellHappenClickHandlerOnQuestionOneForMaleImage}
             />

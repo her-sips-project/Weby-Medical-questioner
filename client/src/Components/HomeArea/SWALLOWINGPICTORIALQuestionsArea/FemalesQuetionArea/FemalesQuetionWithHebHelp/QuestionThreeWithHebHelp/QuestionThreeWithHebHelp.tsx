@@ -19,7 +19,6 @@ function QuestionThreeWithHebHelp(): JSX.Element {
   const customRoutes = "/QuestionThree";
   useLanguageNavigationToEn(customRoutes);
 
-
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     " לפניך מוצגות שתי תמונות המייצגות חוויה שקשורה ליכולת שלך לבלוע כדורים . יש לבחור בתמונה הנכונה עבורך";
@@ -63,7 +62,13 @@ function QuestionThreeWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingPills !== "undefined"
+                  ? signsOfPaint.difficultySwallowingPills
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionThreeWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionThreeWithHebHelpForFemaleImage
@@ -72,7 +77,13 @@ function QuestionThreeWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3 ">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingPills !== "undefined"
+                  ? signsOfPaint.difficultySwallowingPills
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionThreeWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionThreeWithHebHelpForFemaleImage

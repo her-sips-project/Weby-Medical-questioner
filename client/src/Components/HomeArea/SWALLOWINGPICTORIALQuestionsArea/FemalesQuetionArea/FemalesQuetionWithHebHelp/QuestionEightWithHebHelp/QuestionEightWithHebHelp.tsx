@@ -60,7 +60,13 @@ function QuestionEightWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.PainWhileSwallowing !== "undefined"
+                  ? signsOfPaint.PainWhileSwallowing
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionEightWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionEightWithHebHelpForFemaleImage
@@ -69,7 +75,13 @@ function QuestionEightWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.PainWhileSwallowing !== "undefined"
+                  ? signsOfPaint.PainWhileSwallowing
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionEightWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionEightWithHebHelpForFemaleImage

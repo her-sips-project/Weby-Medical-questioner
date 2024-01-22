@@ -81,9 +81,9 @@ function QuestionOneWithHebHelp(): JSX.Element {
           <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
             <div className="mainImgs  h-100">
               <div className="imgL w-50 m-3  h-80">
-                <img
-                  className="mw-100  mh-100"
-                  src={ImageQuestionOneWithHebHelp1}
+                <img 
+              className={`mw-100  mh-100 ${signsOfPaint.difficultySwallowingLiquids ? "selectedImg":""}`}
+              src={ImageQuestionOneWithHebHelp1}
                   onClick={
                     badlyHappenClickHandlerOnQuestionOneWithHebHelpForFemaleImage
                   }

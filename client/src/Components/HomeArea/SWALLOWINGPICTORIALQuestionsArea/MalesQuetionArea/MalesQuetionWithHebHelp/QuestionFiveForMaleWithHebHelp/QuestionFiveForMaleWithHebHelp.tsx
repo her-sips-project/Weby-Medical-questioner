@@ -19,25 +19,56 @@ function QuestionFiveForMaleWithHebHelp(): JSX.Element {
   const customRoutes = "/QuestionFiveForMale";
   useLanguageNavigationToEn(customRoutes);
 
-  
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     " לפניך מוצגות שתי תמונות לגבי משקל הגוף שלך. יש לבחור בתמונה הנכונה עבורך ";
   function wellHappenClickHandlerOnQuestionFiveForMaleWithHebHelpImage(): void {
-    navigate("/QuestionSixForMaleWithHebHelp");
+    if (signsOfPaint.losingWeight === true) {
+      signsOfPaint.losingWeight = false;
+      if (signsOfPaint.numberOfSignsOfPain !== undefined) {
+        signsOfPaint.numberOfSignsOfPain -= 1;
+      }
+      signsOfPainsStateService.getSignsOfPainsState(signsOfPaint);
+      navigate("/QuestionSixForMaleWithHebHelp");
+    } else {
+      signsOfPaint.losingWeight = false;
+      signsOfPaint.numberOfSignsOfPain = signsOfPaint.numberOfSignsOfPain;
+      signsOfPainsStateService.getSignsOfPainsState(signsOfPaint);
+      navigate("/QuestionSixForMaleWithHebHelp");
+    }
   }
   function badlyHappenClickHandlerOnQuestionFiveForMaleWithHebHelpImage(): void {
-    navigate("/QuestionSixForMaleWithHebHelp");
+    if (signsOfPaint.losingWeight === true) {
+      signsOfPaint.losingWeight = true;
+      if (signsOfPaint.numberOfSignsOfPain !== undefined) {
+        signsOfPaint.numberOfSignsOfPain = signsOfPaint.numberOfSignsOfPain;
+      }
+      signsOfPainsStateService.getSignsOfPainsState(signsOfPaint);
+      navigate("/QuestionSixForMaleWithHebHelp");
+    } else {
+      if (signsOfPaint.numberOfSignsOfPain !== undefined) {
+        signsOfPaint.numberOfSignsOfPain += 1;
+      }
+      signsOfPaint.losingWeight = true;
+      signsOfPainsStateService.getSignsOfPainsState(signsOfPaint);
+      navigate("/QuestionSixForMaleWithHebHelp");
+    }
   }
   return (
     <div className="questionBody  h-100 ">
-      <Navbar/>
+      <Navbar />
       <QuestNum currentQuestNum={5} />
       <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
-        <div className="mainImgs  h-100">
+        <div className="mainImgs qNum5 h-100">
           <div className="imgL w-50 m-3  ">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.losingWeight !== "undefined"
+                  ? signsOfPaint.losingWeight
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionFiveForMaleWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionFiveForMaleWithHebHelpImage
@@ -46,7 +77,13 @@ function QuestionFiveForMaleWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  ">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.losingWeight !== "undefined"
+                  ? signsOfPaint.losingWeight
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionFiveForMaleWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionFiveForMaleWithHebHelpImage

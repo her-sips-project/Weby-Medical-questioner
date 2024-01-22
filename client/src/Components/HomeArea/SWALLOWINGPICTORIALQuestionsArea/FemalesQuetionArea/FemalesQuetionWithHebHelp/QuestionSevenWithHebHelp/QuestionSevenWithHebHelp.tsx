@@ -16,7 +16,6 @@ function QuestionSevenWithHebHelp(): JSX.Element {
   const customRoutes = "/QuestionSevent";
   useLanguageNavigationToEn(customRoutes);
 
-
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     " לפניך מוצגות שתי תמונות המייצגות חוויה לגבי אכילה בחברת אחרים.  יש לבחור בתמונה הנכונה עבורך";
@@ -57,10 +56,16 @@ function QuestionSevenWithHebHelp(): JSX.Element {
       <Navbar />
       <QuestNum currentQuestNum={7} />
       <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
-        <div className="mainImgs  h-100">
+        <div className="mainImgs qNum7 h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.AvoidingEatingWithOthers !== "undefined"
+                  ? signsOfPaint.AvoidingEatingWithOthers
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionSevenWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionSevenWithHebHelpForFemaleImage
@@ -69,7 +74,13 @@ function QuestionSevenWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.AvoidingEatingWithOthers !== "undefined"
+                  ? signsOfPaint.AvoidingEatingWithOthers
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionSevenWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionSevenWithHebHelpForFemaleImage

@@ -17,7 +17,6 @@ function QuestionFourWithHebHelp(): JSX.Element {
   const customRoutes = "/QuestionFour";
   useLanguageNavigationToEn(customRoutes);
 
-
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     " לפניך מוצגות שתי תמונות לגבי אירועים של שיעול שמתרחשים בזמן האכילה. יש לבחור בתמונה הנכונה עבורך ";
@@ -61,7 +60,13 @@ function QuestionFourWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.coughingWhileEating !== "undefined"
+                  ? signsOfPaint.coughingWhileEating
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionFourWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionFourWithHebHelpForFemaleImage
@@ -70,7 +75,13 @@ function QuestionFourWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.coughingWhileEating !== "undefined"
+                  ? signsOfPaint.coughingWhileEating
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionFourWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionFourWithHebHelpForFemaleImage

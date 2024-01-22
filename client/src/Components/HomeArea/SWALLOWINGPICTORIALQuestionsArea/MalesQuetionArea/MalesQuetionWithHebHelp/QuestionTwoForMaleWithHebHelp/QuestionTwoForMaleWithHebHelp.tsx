@@ -13,12 +13,10 @@ import { useLanguageNavigationToEn } from "../../../../../../Hooks/hooks";
 
 function QuestionTwoForMaleWithHebHelp(): JSX.Element {
   const navigate = useNavigate();
-  
 
   const customRoutes = "/QuestionTwoForMale";
   useLanguageNavigationToEn(customRoutes);
 
-  
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     " לפניך מוצגות שתי תמונות המייצגות חוויה שקשורה ליכולת שלך לאכול מזון מוצק.  יש לבחור בתמונה הנכונה עבורך ";
@@ -62,7 +60,14 @@ function QuestionTwoForMaleWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3 h-75">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultrySwallowingSolidFood !==
+                "undefined"
+                  ? signsOfPaint.difficultrySwallowingSolidFood
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionTwoForMaleWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionTwoForMaleWithHebHelpImage
@@ -71,7 +76,14 @@ function QuestionTwoForMaleWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3 h-75 ">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultrySwallowingSolidFood !==
+                "undefined"
+                  ? signsOfPaint.difficultrySwallowingSolidFood
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionTwoForMaleWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionTwoForMaleWithHebHelpImage

@@ -63,14 +63,26 @@ function QuestionFour(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.coughingWhileEating !== "undefined"
+                  ? signsOfPaint.coughingWhileEating
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionFour1}
               onClick={badlyHappenClickHandlerOnQuestionFourForFemaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.coughingWhileEating !== "undefined"
+                  ? signsOfPaint.coughingWhileEating
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionFour2}
               onClick={wellHappenClickHandlerOnQuestionFourFemaleImage}
             />

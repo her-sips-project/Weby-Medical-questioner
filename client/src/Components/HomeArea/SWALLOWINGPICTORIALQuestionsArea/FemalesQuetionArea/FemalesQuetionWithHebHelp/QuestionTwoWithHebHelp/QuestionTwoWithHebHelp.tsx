@@ -61,8 +61,13 @@ function QuestionTwoWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
-              src={ImageQuestionTwoWithHebHelp1}
+className={`mw-100 mh-100 ${
+  typeof signsOfPaint.difficultrySwallowingSolidFood !== "undefined"
+    ? signsOfPaint.difficultrySwallowingSolidFood
+      ? "selectedImg"
+      : "noSelectedImg"
+    : ""
+}`}              src={ImageQuestionTwoWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionTwoWithHebHelpForFemaleImage
               }
@@ -71,7 +76,13 @@ function QuestionTwoWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultrySwallowingSolidFood !== "undefined"
+                  ? signsOfPaint.difficultrySwallowingSolidFood
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionTwoWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionTwoWithHebHelpForFemaleImage

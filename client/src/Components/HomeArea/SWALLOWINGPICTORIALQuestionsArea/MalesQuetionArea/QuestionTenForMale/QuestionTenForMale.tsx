@@ -57,14 +57,28 @@ function QuestionTenForMale(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.feelingAnxiousAboutSwallowing !==
+                "undefined"
+                  ? signsOfPaint.feelingAnxiousAboutSwallowing
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionTenForMale1}
               onClick={badlyHappenClickHandlerOnQuestionTenForMaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.feelingAnxiousAboutSwallowing !==
+                "undefined"
+                  ? signsOfPaint.feelingAnxiousAboutSwallowing
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionTenForMale2}
               onClick={wellHappenClickHandlerOnQuestionTenForMaleImage}
             />

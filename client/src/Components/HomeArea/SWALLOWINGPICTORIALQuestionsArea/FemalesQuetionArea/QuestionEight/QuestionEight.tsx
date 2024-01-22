@@ -11,13 +11,12 @@ import QuestNum from "../../../../LayoutArea/QuestNum";
 import BtnsBottom from "../../../../LayoutArea/Layout/PageBtns/BtnsBottom";
 import useLanguageNavigationToHeb from "../../../../../Hooks/hooks";
 
-
 function QuestionEight(): JSX.Element {
   const navigate = useNavigate();
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const customRoutes = "/QuestionEightWithHebHelp";
   useLanguageNavigationToHeb(customRoutes);
-  
+
   const title =
     "There are two images representing experiences of pain when swallowing.Choose the image that best represents your experience.";
   function wellHappenClickHandlerOnQuestionEightForFemaleImage(): void {
@@ -60,14 +59,26 @@ function QuestionEight(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.PainWhileSwallowing !== "undefined"
+                  ? signsOfPaint.PainWhileSwallowing
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionEight1}
               onClick={badlyHappenClickHandlerOnQuestionEightForFemaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.PainWhileSwallowing !== "undefined"
+                  ? signsOfPaint.PainWhileSwallowing
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionEight2}
               onClick={wellHappenClickHandlerOnQuestionEightForFemaleImage}
             />

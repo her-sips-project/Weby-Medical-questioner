@@ -59,17 +59,29 @@ function QuestionFiveForMale(): JSX.Element {
       <Navbar />
       <QuestNum currentQuestNum={5} />
       <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
-        <div className="mainImgs  h-100">
+        <div className="mainImgs qNum5  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.losingWeight !== "undefined"
+                  ? signsOfPaint.losingWeight
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionFiveForMale1}
               onClick={badlyHappenClickHandlerOnQuestionFiveForMaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.losingWeight !== "undefined"
+                  ? signsOfPaint.losingWeight
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionFiveForMale2}
               onClick={wellHappenClickHandlerOnQuestionFiveForMaleImage}
             />

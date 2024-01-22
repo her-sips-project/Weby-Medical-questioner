@@ -58,14 +58,28 @@ function QuestionTwo(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultrySwallowingSolidFood !==
+                "undefined"
+                  ? signsOfPaint.difficultrySwallowingSolidFood
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionTwo1}
               onClick={badlyHappenClickHandlerOnQuestionTwoForFemaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultrySwallowingSolidFood !==
+                "undefined"
+                  ? signsOfPaint.difficultrySwallowingSolidFood
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionTwo2}
               onClick={wellHappenClickHandlerOnQuestionTwoForFemaleImage}
             />

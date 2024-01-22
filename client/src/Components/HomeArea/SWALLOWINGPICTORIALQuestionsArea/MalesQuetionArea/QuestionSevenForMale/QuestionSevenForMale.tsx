@@ -56,17 +56,29 @@ function QuestionSevenForMale(): JSX.Element {
       <Navbar />
       <QuestNum currentQuestNum={7} />
       <div className="MaleOrFemalePageWithHeb  px-0 container  h-75">
-        <div className="mainImgs  h-100">
+        <div className="mainImgs qNum7 h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.AvoidingEatingWithOthers !== "undefined"
+                  ? signsOfPaint.AvoidingEatingWithOthers
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionSevenForMale1}
               onClick={badlyHappenClickHandlerOnQuestionSevenForMaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.AvoidingEatingWithOthers !== "undefined"
+                  ? signsOfPaint.AvoidingEatingWithOthers
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionSevenForMale2}
               onClick={wellHappenClickHandlerOnQuestionSevenForMaleImage}
             />

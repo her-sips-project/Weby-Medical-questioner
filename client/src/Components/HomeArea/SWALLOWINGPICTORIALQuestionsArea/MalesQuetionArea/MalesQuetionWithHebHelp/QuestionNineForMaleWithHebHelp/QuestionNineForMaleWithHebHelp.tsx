@@ -16,7 +16,6 @@ function QuestionNineForMaleWithHebHelp(): JSX.Element {
   const customRoutes = "/QuestionNineForMale";
   useLanguageNavigationToEn(customRoutes);
 
-  
   const signsOfPaint = { ...store.getState().PainsAppState.signsOFPain };
   const title =
     "לפניך מוצגות שתי תמונות המייצגות חוויה של מידת ההנאה שלך מאכילה. יש לבחור בתמונה הנכונה עבורך.   ";
@@ -60,7 +59,13 @@ function QuestionNineForMaleWithHebHelp(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.EnjoyingMeals !== "undefined"
+                  ? signsOfPaint.EnjoyingMeals
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={imageQuestionNineForMaleWithHebHelp1}
               onClick={
                 badlyHappenClickHandlerOnQuestionNineForMaleWithHebHelpImage
@@ -69,7 +74,13 @@ function QuestionNineForMaleWithHebHelp(): JSX.Element {
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.EnjoyingMeals !== "undefined"
+                  ? signsOfPaint.EnjoyingMeals
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={imageQuestionNineForMaleWithHebHelp2}
               onClick={
                 wellHappenClickHandlerOnQuestionNineForMaleWithHebHelpImage

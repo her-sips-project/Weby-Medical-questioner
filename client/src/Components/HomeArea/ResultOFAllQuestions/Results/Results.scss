@@ -103,11 +103,14 @@
   }
 }
 
-@media screen and (max-width: 580px) {
+@media only screen and (max-width: 580px) {
+  .resultPage{
+    min-height: 100vh !important;
+  }
   .resultDiv {
     margin: 0;
     padding: 0;
-    min-width: 100%;
+    min-width: 100% !important;
     ol {
       padding: 0;
       overflow-x: visible;

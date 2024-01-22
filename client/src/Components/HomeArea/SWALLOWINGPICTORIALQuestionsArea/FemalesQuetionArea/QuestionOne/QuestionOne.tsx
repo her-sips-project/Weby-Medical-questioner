@@ -21,11 +21,11 @@ function QuestionOne(): JSX.Element {
   const title =
     "There are two images representing experiences while drinking liquids. Choose the image that best represents your experience.";
   console.log(media);
-
-  /*-------------------------------------------*/ 
+  console.log(signsOfPaint.difficultySwallowingLiquids);
+  /*-------------------------------------------*/
   const customRoutes = "/QuestionOneWithHebHelp";
   useLanguageNavigationToHeb(customRoutes);
-  
+
   function wellHappenClickHandlerOnQuestionOneForFemaleImage(): void {
     if (signsOfPaint.difficultySwallowingLiquids === true) {
       signsOfPaint.difficultySwallowingLiquids = false;
@@ -64,14 +64,26 @@ function QuestionOne(): JSX.Element {
         <div className="mainImgs  h-100">
           <div className="imgL w-50 m-3  h-80">
             <img
-              className="mw-100  mh-100"
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingLiquids !== "undefined"
+                  ? signsOfPaint.difficultySwallowingLiquids
+                    ? "selectedImg"
+                    : "noSelectedImg"
+                  : ""
+              }`}
               src={ImageQuestionOne1}
               onClick={badlyHappenClickHandlerOnQuestionOneForFemaleImage}
             />
           </div>
           <div className="imgR w-50 m-3  h-80">
             <img
-              className=" mw-100 mh-100 "
+              className={`mw-100 mh-100 ${
+                typeof signsOfPaint.difficultySwallowingLiquids !== "undefined"
+                  ? signsOfPaint.difficultySwallowingLiquids
+                    ? "noSelectedImg"
+                    : "selectedImg"
+                  : ""
+              }`}
               src={ImageQuestionOne2}
               onClick={wellHappenClickHandlerOnQuestionOneForFemaleImage}
             />
