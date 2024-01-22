@@ -57,10 +57,8 @@
   }
 }
 
-#root > div > div.mainDiv.container > div > div.userInfo {
-  text-align: right;
-  padding-right: 20%;
-}
+
+
 
 @media only screen and (max-width: 580px) {
   .thankPageDivEn,
@@ -107,6 +105,7 @@
       }
     }
   }
+
   .numPage {
     display: flex;
     justify-content: center;
@@ -148,3 +147,20 @@
     }
   }
 }
+
+
+
+// .thankPageDivEn{
+//   text-align: left;
+// }
+// .thankPageDivHeb{
+//   text-align: right;
+// }
+// .thankPageDivHeb > .userInfo {
+//   text-align: right !important;
+//   padding-right: 20%;
+// }
+// .thankPageDivEn > .userInfo{
+//   text-align: left !important;
+//   padding-right: 20%;
+// }

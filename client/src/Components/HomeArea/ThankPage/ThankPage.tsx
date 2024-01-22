@@ -51,7 +51,7 @@ const ThankPage = () => {
   console.log(getPatient.email);
   const signsOfPain = { ...store.getState().PainsAppState.signsOFPain };
   return (
-    <div className="thankPageDiv thankPageDivEn h-100  ">
+    <div dir="ltr" className="thankPageDiv thankPageDivEn h-100  ">
       <Navbar />
       {!isMobile ? (
         <div className="mainDiv container w-100 h-75">
@@ -100,7 +100,7 @@ const ThankPage = () => {
           </div>
         </div>
       ) : (
-        <div className="mainDiv container ">
+        <div dir="ltr" className="mainDiv container ">
           <div className="userCard ">
             <div className="blueDiv">
               <div className="thankMain">
