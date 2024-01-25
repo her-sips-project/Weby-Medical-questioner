@@ -80,8 +80,8 @@ function QuestionFiveForMaleWithHebHelp(): JSX.Element {
               className={`mw-100 mh-100 ${
                 typeof signsOfPaint.losingWeight !== "undefined"
                   ? signsOfPaint.losingWeight
-                    ? "selectedImg"
-                    : "noSelectedImg"
+                    ? "noSelectedImg"
+                    : "selectedImg"
                   : ""
               }`}
               src={imageQuestionFiveForMaleWithHebHelp2}
